@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kristine Servia" />
+    <meta
+      name="keywords"
+      content="study-aids, flashcards, learning materials, index-cards"
+    />
+    <meta
+      name="description"
+      content="The Flashcard Project is an interactive application where users can create a custom flashcard collection."
+    />
+    <link href="./assets/vendor/normalize.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link href="./favicon.ico" rel="icon" type="image/x-icon" />
+    <title>Flash Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="page">
+    <!-- HOME NAVIGATION -->
+    <header class="header">
+      <h1 class="header__title">
+        <a href="#home" class="header__link">Flash Cards</a>
+      </h1>
+
+      <nav class="nav">
+        <ul class="nav__links">
+          <li><a href="#home" class="nav__link">My Decks</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- DECKS & CAROUSEL SECTION -->
+    <main class="page__main-content">
+      <section id="home" class="decks">
+        <h2 class="decks__title">My Decks</h2>
+        <div class="decks__list-button-wrapper">
+          <ul class="decks__list">
+            <!-- Flash Cards dynamically injected here -->
+            <!-- New Flash Card Button -->
+            <li class="decks__newCard-button">
+              <button
+                class="decks__new-deck-btn"
+                aria-label="Delete deck"
+                type="button"
+              >
+                + New Deck
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--CAROUSEL SECTION-->
+      <section id="carousel" class="carousel">
+        <h2 class="carousel__title">Carousel</h2>
+
+        <div class="carousel__row">
+          <button
+            type="button"
+            aria-label="Go to previous card in deck"
+            class="carousel__btn carousel__btn_type_left"
+          ></button>
+
+          <div class="carousel__card">
+            <h3 class="carousel__card-title"></h3>
+            <p class="carousel__card-text"></p>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Go to next card in deck"
+            class="carousel__btn carousel__btn_type_right"
+          ></button>
+        </div>
+
+        <button
+          type="button"
+          aria-label="Flip card to see contents"
+          class="carousel__btn carousel__btn_type_flip"
+        ></button>
+      </section>
+
+      <!-- NOT FOUND SECTION   -->
+      <section id="not-found" class="not-found">
+        <h2 class="not-found__status-code">404</h2>
+        <p class="not-found__text">Sorry, nothing found!</p>
+      </section>
+    </main>
+
+    <!-- TEMPLATE SECTION -->
+    <template class="deck__list-template">
+      <li class="deck">
+        <a href="#" class="deck__link"></a>
+        <h3 class="deck__title"></h3>
+        <div class="deck__row">
+          <p class="deck__count"></p>
+          <button class="deck__delete-btn" type="button">
+            <img src="./assets/images/delete.svg" alt="Delete deck" />
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+      <p class="footer__text">&copy; 2026 Kristine Servia</p>
+    </footer>
+
+    <script type="module" src="./assets/js/index.js"></script>
+  </body>
+</html>
+
+<!-- TYJ! -->
