@@ -44,3 +44,7 @@ My Flashcard App features:
 ![CSS Flexbox, Deck Question](./assets/images/screenshots/Screenshot-07a.png)
 
 ![CSS Flexbox, Deck Answer](./assets/images/screenshots/Screenshot-07b.png)
+
+## Deployed site
+
+Check out [Flashcards](https://kristineservia.github.io/ai-se_project_flashcards/) on GitHub Pages.
