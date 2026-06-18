@@ -1,0 +1,76 @@
+/* Modifying deck__count and deck__delete-btn within the deck */
+.deck__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 20px 20px;
+}
+
+/* "Individual Card Titles" */
+.deck__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  padding: 20px 0 0 20px;
+}
+
+.deck__count {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.deck__delete-btn {
+  margin-right: 20px;
+  max-width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.deck__delete-btn:hover {
+  opacity: 1;
+}
+
+.deck {
+  max-width: 325px;
+  width: 100%;
+  height: 205px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.deck__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* DECK CARD COLLECTION COLOR */
+.deck_color_green {
+  background-color: #64d583;
+}
+.deck_color_blue {
+  background-color: #91a8f9;
+}
+.deck_color_pink {
+  background-color: #ee92d7;
+}
+.deck_color_purple {
+  background-color: #aa8ef0;
+}
+.deck_color_orange {
+  background-color: #ee955e;
+}
+.deck_color_yellow {
+  background-color: #f5d770;
+}
