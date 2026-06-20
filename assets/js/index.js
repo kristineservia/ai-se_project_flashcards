@@ -18,52 +18,52 @@ function renderHomeView() {
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
-  const deckTemplate = document.querySelector(".deck__list-template");
+  const cardTemplate = document.querySelector(".card__list-template");
 
-  const deckList = document.querySelector(".decks__list");
+  const cardList = document.querySelector(".gallery__list");
 
-  const newCardButton = document.querySelector(".decks__newCard-button");
+  const newCardButton = document.querySelector(".gallery__new-card");
 
-  deckList.innerHTML = "";
+  cardList.innerHTML = "";
 
-  function createDeckEl(item) {
-    const deckEl = deckTemplate.content.querySelector(".deck").cloneNode(true);
+  function createCardEl(item) {
+    const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
-    deckEl.querySelector(".deck__title").textContent = item.name;
+    cardEl.querySelector(".card__title").textContent = item.name;
 
-    deckEl.querySelector(".deck__count").textContent =
+    cardEl.querySelector(".card__count").textContent =
       `${item.cards.length} cards`;
 
-    const deleteButton = deckEl.querySelector(".deck__delete-btn");
+    const deleteButton = cardEl.querySelector(".card__delete-btn");
 
     deleteButton.addEventListener("click", () => {
-      deckEl.remove();
+      cardEl.remove();
     });
 
     const color = hexToString(item.color);
-    deckEl.classList.add(`deck_color_${color}`);
+    cardEl.classList.add(`card_color_${color}`);
 
     //Setting the URL to index.html#carousel/item.id (from decks)
-    const deckData = deckEl.querySelector(".deck__link");
+    const cardData = cardEl.querySelector(".card__link");
 
-    deckData.addEventListener("click", () => {
-      deckData.href = `#carousel/${item.id}`;
+    cardData.addEventListener("click", () => {
+      cardData.href = `#carousel/${item.id}`;
     });
 
-    return deckEl;
+    return cardEl;
   }
 
-  function renderDeckEl(item) {
-    const deckEl = createDeckEl(item);
+  function renderCardEl(item) {
+    const cardEl = createCardEl(item);
 
     //Add the list of decks at the begining-top of the home page.
-    deckList.prepend(deckEl);
+    cardList.prepend(cardEl);
 
     //Add the Create New Flash Card Button at the end-bottom of the list of decks
-    deckList.append(newCardButton);
+    cardList.append(newCardButton);
   }
 
-  decks.forEach(renderDeckEl);
+  decks.forEach(renderCardEl);
 }
 
 // NOT FOUND SECTION VIEW
@@ -88,9 +88,9 @@ function router() {
   } else if (hash.startsWith("carousel/")) {
     //Split method turns "carousel/git-basics", from the URL, into an array split by a separator ("/")
     //The [1] targets the first index in the split array, the carousel string has zero as it's index
-    const deckId = hash.split("/")[1];
+    const cardId = hash.split("/")[1];
 
-    const deckLocation = getDeckByID(deckId);
+    const cardLocation = getDeckByID(cardId);
 
     mainElement.classList.add("page__main-content_type_carousel");
 
@@ -98,7 +98,7 @@ function router() {
     // aboutSection.style.display = "none";
     carouselSection.style.display = "flex";
     notFoundSection.style.display = "none";
-    renderCarouselView(deckLocation);
+    renderCarouselView(cardLocation);
   } else {
     renderNotFoundView();
     mainElement.classList.remove("page__main-content_type_carousel");

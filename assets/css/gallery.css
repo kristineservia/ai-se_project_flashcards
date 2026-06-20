@@ -1,20 +1,20 @@
-/* "My Decks" This is the large My Decks subtitle underneath Flash Cards */
-.decks__title {
+/* "Gallery" This is the large, formerly 'My Decks', gallery subtitle underneath Flash Cards */
+.gallery__title {
   font-weight: 700;
   font-size: 40px;
   margin: 0 0 40px 0;
 }
 
-/*Styles for the New Deck Button, inside a list element,to wrap alongside the other listed decks*/
-.decks__newCard-button {
+/*Styles for the New Card Button, inside a list element,to wrap alongside the other listed decks*/
+.gallery__new-card {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
 
-/*Box where the listed Flash Cards and the +New Deck Button are held*/
-.decks__list-button-wrapper {
+/*Box where the listed Flash Cards and the +New Card Button are held*/
+.gallery__list-button-wrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -22,16 +22,16 @@
   gap: 20px;
 }
 
-/* Unordered List containing Flash Cards and the +New Deck Button */
-.decks__list {
+/* Unordered List containing Flash Cards and the +New Card Button */
+.gallery__list {
   display: contents;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
 
-/*Styles for the +New Decks Button */
-.decks__new-deck-btn {
+/*Styles for the +New Card Button */
+.gallery__new-card-btn {
   font-family: inherit;
   background-color: #d9d9d9;
   max-width: 325px;
@@ -50,7 +50,7 @@
   padding: 20px 0 0 20px;
 }
 
-.decks__new-deck-btn:hover {
+.gallery__new-deck-btn:hover {
   background-color: #c5c5c5;
   color: #1a1a1a;
 }

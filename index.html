@@ -25,42 +25,43 @@
   </head>
 
   <body class="page">
-    <!-- HOME NAVIGATION -->
+    <!-- HEADER BLOCK -->
     <header class="header">
       <h1 class="header__title">
         <a href="#home" class="header__link">Flash Cards</a>
       </h1>
 
+      <!-- NAV BLOCK -->
       <nav class="nav">
         <ul class="nav__links">
-          <li><a href="#home" class="nav__link">My Decks</a></li>
+          <li><a href="#home" class="nav__link">My Gallery</a></li>
           <li><a href="#about" class="nav__link">About</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- DECKS & CAROUSEL SECTION -->
+    <!-- GALLERY BLOCK -->
     <main class="page__main-content">
-      <section id="home" class="decks">
-        <h2 class="decks__title">My Decks</h2>
-        <div class="decks__list-button-wrapper">
-          <ul class="decks__list">
-            <!-- Flash Cards dynamically injected here -->
+      <section id="home" class="gallery">
+        <h2 class="gallery__title">Gallery</h2>
+        <div class="gallery__list-button-wrapper">
+          <ul class="gallery__list">
+            <!-- Flash Cards dynamically injected here inside the DOM -->
             <!-- New Flash Card Button -->
-            <li class="decks__newCard-button">
+            <li class="gallery__new-card">
               <button
-                class="decks__new-deck-btn"
-                aria-label="Delete deck"
+                class="gallery__new-card-btn"
+                aria-label="Create new card"
                 type="button"
               >
-                + New Deck
+                + New Card
               </button>
             </li>
           </ul>
         </div>
       </section>
 
-      <!--CAROUSEL SECTION-->
+      <!--CAROUSEL BLOCK-->
       <section id="carousel" class="carousel">
         <h2 class="carousel__title">Carousel</h2>
 
@@ -90,7 +91,7 @@
         ></button>
       </section>
 
-      <!-- NOT FOUND SECTION   -->
+      <!-- NOT FOUND BLOCK   -->
       <section id="not-found" class="not-found">
         <h2 class="not-found__status-code">404</h2>
         <p class="not-found__text">Sorry, nothing found!</p>
@@ -98,20 +99,20 @@
     </main>
 
     <!-- TEMPLATE SECTION -->
-    <template class="deck__list-template">
-      <li class="deck">
-        <a href="#" class="deck__link"></a>
-        <h3 class="deck__title"></h3>
-        <div class="deck__row">
-          <p class="deck__count"></p>
-          <button class="deck__delete-btn" type="button">
-            <img src="./assets/images/delete.svg" alt="Delete deck" />
+    <template id="deck-template" class="card__list-template">
+      <li class="card">
+        <a href="#" class="card__link"></a>
+        <h3 class="card__title"></h3>
+        <div class="card__row">
+          <p class="card__count"></p>
+          <button class="card__delete-btn" type="button">
+            <img src="./assets/images/delete.svg" alt="Delete card" />
           </button>
         </div>
       </li>
     </template>
 
-    <!-- FOOTER SECTION -->
+    <!-- FOOTER BLOCK -->
     <footer class="footer">
       <p class="footer__text">&copy; 2026 Kristine Servia</p>
     </footer>
