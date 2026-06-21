@@ -40,10 +40,40 @@
       </nav>
     </header>
 
-    <!-- GALLERY BLOCK -->
     <main class="page__main-content">
+      <!-- GALLERY BLOCK  id="home"-->
       <section id="home" class="gallery">
-        <h2 class="gallery__title">Gallery</h2>
+        <h2 class="gallery__title">My Decks</h2>
+        <div class="gallery__list-button-wrapper">
+          <ul class="gallery__list">
+            <!-- Flash Cards dynamically injected here inside the DOM -->
+            <!-- New Flash Card Button -->
+            <li class="gallery__new-card">
+              <button
+                class="gallery__new-card-btn"
+                aria-label="Create new card"
+                type="button"
+              >
+                + New Card
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- GALLERY BLOCK  id="deck-view"-->
+      <section id="deck-view" class="gallery">
+        <div class="gallery__practice-btn-wrapper">
+          <h2 class="gallery__title"></h2>
+          <button
+            class="gallery__practice-btn"
+            aria-label="Practice button"
+            type="button"
+          >
+            Practice
+          </button>
+        </div>
+
         <div class="gallery__list-button-wrapper">
           <ul class="gallery__list">
             <!-- Flash Cards dynamically injected here inside the DOM -->
@@ -105,8 +135,33 @@
         <h3 class="card__title"></h3>
         <div class="card__row">
           <p class="card__count"></p>
-          <button class="card__delete-btn" type="button">
-            <img src="./assets/images/delete.svg" alt="Delete card" />
+          <button
+            class="card__delete-btn"
+            aria-label="Delete deck"
+            type="button"
+          >
+            <img src="./assets/images/delete.svg" alt="Delete deck" />
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <!-- TEMPLATE SECTION -->
+    <template id="card-template" class="card__list-template">
+      <li class="card">
+        <h3 class="card__title"></h3>
+        <div class="card__row">
+          <button
+            class="card__flip-btn"
+            aria-label="Flip card button"
+            type="button"
+          ></button>
+          <button
+            class="card__delete-btn"
+            aria-label="Delete deck"
+            type="button"
+          >
+            <img src="./assets/images/delete.svg" alt="Delete deck" />
           </button>
         </div>
       </li>
