@@ -27,8 +27,7 @@ function renderHomeView() {
   const newCardButton = document.querySelector(".gallery__new-card");
 
   cardList.innerHTML = "";
-
-  function createCardEl(item) {
+  -function createCardEl(item) {
     const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
     cardEl.querySelector(".card__title").textContent = item.name;
@@ -48,12 +47,17 @@ function renderHomeView() {
     //Setting the URL to index.html#carousel/item.id (from decks)
     const cardData = cardEl.querySelector(".card__link");
 
+    //cardData event listener explanation notes:
+    //cardData is the variable that holds the anchor <a> element with the class="card__link" -Dot
+    //.addEventListerner("click", () => {...}) This says:"When user clicks on this link, run this function"-Dot
+    //cardData.href = '#carousel/${item.id}' "when click occurs, listener dynamically sets href to target #carousel/git-basics, for example" -Dot
+    //cardData.href will be reassigned to target the #deck-view directly, not the #carousel
     cardData.addEventListener("click", () => {
-      cardData.href = `#carousel/${item.id}`;
+      cardData.href = `#deck-view/${item.id}`;
     });
 
     return cardEl;
-  }
+  };
 
   function renderCardEl(item) {
     const cardEl = createCardEl(item);
@@ -69,7 +73,7 @@ function renderHomeView() {
 }
 
 // RENDER DECK-VIEW SECTION --NOT CAROUSEL--
-function renderDeckView() {
+function renderDeckView(deck) {
   homeSection.style.display = "none";
   // aboutSection.style.display = "none";
   deckViewSection.style.display = "block";
@@ -100,6 +104,7 @@ function renderNotFoundView() {
 }
 
 /**
+ * ROUTER SECTION
  * Main router function that handles hash changes.
  * Reads the current hash and renders the appropriate view.
  */
@@ -107,20 +112,41 @@ function router() {
   const hash = window.location.hash.slice(1) || "home";
 
   if (hash === "home" || hash === "") {
+    mainElement.classList.remove("page__main-content_type_carousel");
+    mainElement.classList.add("page__main-content");
+
+    //Render Home Page Section
     renderHomeView();
   } else if (hash.startsWith("carousel/")) {
+    mainElement.classList.remove("page__main-content");
+    mainElement.classList.add("page__main-content_type_carousel");
+
     //Split method turns "carousel/git-basics", from the URL, into an array split by a separator ("/")
-    //The [1] targets the first index in the split array, the carousel string has zero as it's index
+    //The [1] targets the first index in the split array, the carousel string is index zero [0]
     const cardId = hash.split("/")[1];
 
     const cardLocation = getDeckByID(cardId);
 
-    mainElement.classList.add("page__main-content_type_carousel");
-
+    //Render Carousel Section
     renderCarouselSection(cardLocation);
-  } else {
-    renderNotFoundView();
+  } else if (hash.startsWith("deck-view/")) {
     mainElement.classList.remove("page__main-content_type_carousel");
+    mainElement.classList.add("page__main-content");
+
+    //Split method turns "deck-view/git-basics", from the URL, into an array split by a separator ("/")
+    //The [1] targets the first index in the split array, the carousel string is index zero [0]
+    const cardId = hash.split("/")[1];
+
+    const cardLocation = getDeckByID(cardId);
+
+    //Render Deck View Section
+    renderDeckView(cardLocation);
+  } else {
+    mainElement.classList.remove("page__main-content_type_carousel");
+    mainElement.classList.remove("page__main-content");
+
+    //Render "404 Not Found" Section
+    renderNotFoundView();
   }
 }
 
