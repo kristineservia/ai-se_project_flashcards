@@ -27,7 +27,8 @@ function renderHomeView() {
   const newCardButton = document.querySelector(".gallery__new-card");
 
   cardList.innerHTML = "";
-  -function createCardEl(item) {
+
+  function createCardEl(item) {
     const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
     cardEl.querySelector(".card__title").textContent = item.name;
@@ -57,7 +58,7 @@ function renderHomeView() {
     });
 
     return cardEl;
-  };
+  }
 
   function renderCardEl(item) {
     const cardEl = createCardEl(item);
