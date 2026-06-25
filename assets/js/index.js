@@ -7,14 +7,16 @@ import { renderCarouselView } from "./carousel.js";
 const homeSection = document.querySelector("#home");
 const myDeckSection = document.querySelector("#home");
 // const aboutSection = document.querySelector("#about");
+const deckViewSection = document.querySelector("#deck-view");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 
-// HOME SECTION VIEW
+// RENDER HOME SECTION
 function renderHomeView() {
   homeSection.style.display = "block";
   // aboutSection.style.display = "none";
+  deckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
@@ -66,10 +68,31 @@ function renderHomeView() {
   decks.forEach(renderCardEl);
 }
 
-// NOT FOUND SECTION VIEW
+// RENDER DECK-VIEW SECTION --NOT CAROUSEL--
+function renderDeckView() {
+  homeSection.style.display = "none";
+  // aboutSection.style.display = "none";
+  deckViewSection.style.display = "block";
+  carouselSection.style.display = "none";
+  notFoundSection.style.display = "none";
+}
+
+// RENDER CAROUSEL SECTION
+function renderCarouselSection(deck) {
+  homeSection.style.display = "none";
+  // aboutSection.style.display = "none";
+  deckViewSection.style.display = "none";
+  carouselSection.style.display = "flex";
+  notFoundSection.style.display = "none";
+
+  renderCarouselView(deck);
+}
+
+// RENDER NOT-FOUND SECTION
 function renderNotFoundView() {
   homeSection.style.display = "none";
   // aboutSection.style.display = "none";
+  deckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "flex";
 
@@ -94,11 +117,7 @@ function router() {
 
     mainElement.classList.add("page__main-content_type_carousel");
 
-    homeSection.style.display = "none";
-    // aboutSection.style.display = "none";
-    carouselSection.style.display = "flex";
-    notFoundSection.style.display = "none";
-    renderCarouselView(cardLocation);
+    renderCarouselSection(cardLocation);
   } else {
     renderNotFoundView();
     mainElement.classList.remove("page__main-content_type_carousel");
