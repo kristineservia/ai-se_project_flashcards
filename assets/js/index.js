@@ -2,8 +2,8 @@ import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderCarouselView } from "./carousel.js";
 
-//In index.js, #home is targeting the element with the id of home.
-//In index.html, The href="#home" is the link that corresponds to the id="home"
+//In index.js, #home is "targeting the element" with the id of home.
+//In index.html, The href="#home" "is the link" that corresponds to the id="home"
 const homeSection = document.querySelector("#home");
 const myDeckSection = document.querySelector("#home");
 // const aboutSection = document.querySelector("#about");
@@ -11,6 +11,62 @@ const deckViewSection = document.querySelector("#deck-view");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
+const cardList = document.querySelector(".gallery__list");
+
+//CREATE THE DECK
+function createDeckEl(item) {
+  //Connecting to template of the list of cards and assigning it to cardTemplate
+  const cardTemplate = document.querySelector(".card__list-template");
+
+  //Creating a clone of the card to form a deck
+  const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
+
+  //Assigning each card in a deck their corresponding title
+  cardEl.querySelector(".card__title").textContent = item.name;
+
+  //Assigning each card in a deck the text "10 cards" num of cards == length of array
+  cardEl.querySelector(".card__count").textContent =
+    `${item.cards.length} cards`;
+
+  //Delete Button Function
+  const deleteButton = cardEl.querySelector(".card__delete-btn");
+  deleteButton.addEventListener("click", () => {
+    cardEl.remove();
+  });
+
+  //Decks color assignment
+  const color = hexToString(item.color);
+  cardEl.classList.add(`card_color_${color}`);
+
+  //Setting the URL to index.html#carousel/item.id (from decks)
+  const cardData = cardEl.querySelector(".card__link");
+
+  //cardData event listener explanation notes:
+  //cardData is the variable that holds the anchor <a> element with the class="card__link" -Dot
+  //.addEventListerner("click", () => {...}) This says:"When user clicks on this link, run this function"-Dot
+  //cardData.href = '#carousel/${item.id}' "when click occurs, listener dynamically sets href to target #carousel/git-basics, for example" -Dot
+  //cardData.href will be reassigned to target the #deck-view directly, not the #carousel
+  cardData.addEventListener("click", () => {
+    cardData.href = `#deck-view/${item.id}`;
+  });
+
+  return cardEl;
+}
+
+//RENDER THE CARD
+function renderCardEl(item) {
+  //Call createDeckEl() function, pass it "item", and assign it to cardEl
+  const cardEl = createDeckEl(item);
+
+  //New Card Button
+  const newCardButton = document.querySelector(".gallery__new-card");
+
+  //Add the list of decks at the begining-top of the home page.
+  cardList.prepend(cardEl);
+
+  //Add the New Card Button at the end-bottom of the list of decks
+  cardList.append(newCardButton);
+}
 
 // RENDER HOME SECTION
 function renderHomeView() {
@@ -20,55 +76,7 @@ function renderHomeView() {
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
-  const cardTemplate = document.querySelector(".card__list-template");
-
-  const cardList = document.querySelector(".gallery__list");
-
-  const newCardButton = document.querySelector(".gallery__new-card");
-
   cardList.innerHTML = "";
-
-  function createCardEl(item) {
-    const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
-
-    cardEl.querySelector(".card__title").textContent = item.name;
-
-    cardEl.querySelector(".card__count").textContent =
-      `${item.cards.length} cards`;
-
-    const deleteButton = cardEl.querySelector(".card__delete-btn");
-
-    deleteButton.addEventListener("click", () => {
-      cardEl.remove();
-    });
-
-    const color = hexToString(item.color);
-    cardEl.classList.add(`card_color_${color}`);
-
-    //Setting the URL to index.html#carousel/item.id (from decks)
-    const cardData = cardEl.querySelector(".card__link");
-
-    //cardData event listener explanation notes:
-    //cardData is the variable that holds the anchor <a> element with the class="card__link" -Dot
-    //.addEventListerner("click", () => {...}) This says:"When user clicks on this link, run this function"-Dot
-    //cardData.href = '#carousel/${item.id}' "when click occurs, listener dynamically sets href to target #carousel/git-basics, for example" -Dot
-    //cardData.href will be reassigned to target the #deck-view directly, not the #carousel
-    cardData.addEventListener("click", () => {
-      cardData.href = `#deck-view/${item.id}`;
-    });
-
-    return cardEl;
-  }
-
-  function renderCardEl(item) {
-    const cardEl = createCardEl(item);
-
-    //Add the list of decks at the begining-top of the home page.
-    cardList.prepend(cardEl);
-
-    //Add the Create New Flash Card Button at the end-bottom of the list of decks
-    cardList.append(newCardButton);
-  }
 
   decks.forEach(renderCardEl);
 }
@@ -80,6 +88,22 @@ function renderDeckView(deck) {
   deckViewSection.style.display = "block";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
+
+  //Connecting the Card Template to the DOM and assigning it to cardTemplate.
+  // const cardTemplate = document.querySelector("#card-template");
+
+  //New Card Button
+  const newCardButton = document.querySelector(".gallery__new-card-btn");
+
+  //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
+  cardList.innerHTML = "";
+
+  //Add the New Card Button at the end-bottom of the list of decks
+  cardList.append(newCardButton);
+
+  //The cards property inside the decks object can be accessed through dot notation.
+  //Loop for each card rendered from the decks object.
+  deck.cards.forEach(renderCardEl);
 }
 
 // RENDER CAROUSEL SECTION
