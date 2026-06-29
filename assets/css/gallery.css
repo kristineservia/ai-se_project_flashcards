@@ -5,7 +5,7 @@
   margin: 0 0 40px 0;
 }
 
-/*Styles for the New Card Button, inside a list element,to wrap alongside the other listed decks*/
+/*Styles for the New Deck Button, inside a list element,to wrap alongside the other listed decks*/
 .gallery__new-card {
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +22,7 @@
   gap: 20px;
 }
 
-/* Unordered List containing Flash Cards and the +New Card Button */
+/* Unordered List containing Flash Cards and the +New Deck Button */
 .gallery__list {
   display: contents;
   flex-wrap: wrap;
@@ -30,7 +30,7 @@
   padding: 0;
 }
 
-/*Styles for the +New Card Button */
+/*Styles for the +New Deck Button */
 .gallery__new-card-btn {
   font-family: inherit;
   background-color: #d9d9d9;

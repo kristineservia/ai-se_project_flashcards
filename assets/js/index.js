@@ -11,10 +11,13 @@ const deckViewSection = document.querySelector("#deck-view");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
-const cardList = document.querySelector(".gallery__list");
+const cardListHome = document.querySelector("#home .gallery__list");
+const cardListDeckView = document.querySelector("#deck-view .gallery__list");
 
 //CREATE THE CARD
 function createCardEl(card) {
+  let showingQuestion = true;
+
   //Connecting the Card Template to the DOM and assigning it to cardTemplate.
   const cardTemplate = document.querySelector("#card-template");
 
@@ -25,14 +28,13 @@ function createCardEl(card) {
   cardEl.querySelector(".card__title").textContent = card.name;
 
   //Flip Button Function
-  const flipBtn = cardEl.querySelector(".card__flip-btn");
+  const flipBtn = cardEl.querySelector(".card__btn_type_flip");
   flipBtn.addEventListener("click", () => {
     showingQuestion = !showingQuestion;
-    updateDisplay();
   });
 
   //Delete Button Function
-  const deleteButton = cardEl.querySelector(".card__delete-btn");
+  const deleteButton = cardEl.querySelector(".card__btn_type_delete");
   deleteButton.addEventListener("click", () => {
     cardEl.remove();
   });
@@ -47,7 +49,7 @@ function createCardEl(card) {
 //CREATE THE DECK
 function createDeckEl(item) {
   //Connecting to template of the list of cards and assigning it to cardTemplate
-  const cardTemplate = document.querySelector(".card__list-template");
+  const cardTemplate = document.querySelector("#deck-template");
 
   //Creating a clone of the card to form a deck
   const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
@@ -60,7 +62,7 @@ function createDeckEl(item) {
     `${item.cards.length} cards`;
 
   //Delete Button Function
-  const deleteButton = cardEl.querySelector(".card__delete-btn");
+  const deleteButton = cardEl.querySelector(".card__btn_type_delete");
   deleteButton.addEventListener("click", () => {
     cardEl.remove();
   });
@@ -89,11 +91,8 @@ function renderDeckEl(item) {
   //Call createDeckEl() function, pass it "item", and assign it to deckEl
   const deckEl = createDeckEl(item);
 
-  //New Card Button
-  const newDeckButton = document.querySelector(".gallery__new-card-btn");
-
   //Add the list of decks at the begining-top of the home page.
-  cardList.prepend(deckEl);
+  cardListHome.prepend(deckEl);
 }
 
 //RENDER A CARD
@@ -101,11 +100,8 @@ function renderCardEl(card) {
   //Call createCardEl() function, pass it "card", and assign it to cardEl
   const cardEl = createCardEl(card);
 
-  //New Card Button
-  // const newCardButton = document.querySelector(".gallery__new-card-btn");
-
   //Add the list of decks at the begining-top of the home page.
-  cardList.prepend(cardEl);
+  cardListDeckView.prepend(cardEl);
 }
 
 // RENDER HOME SECTION
@@ -116,17 +112,17 @@ function renderHomeView() {
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
+  //New Deck Button
+  const newDeckButton = document.querySelector(".gallery__new-card");
+
   //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
-  cardList.innerHTML = "";
+  cardListHome.innerHTML = "";
 
   //Loop for each deck rendered from the decks object.
   decks.forEach(renderDeckEl);
 
-  //New Deck Button
-  // const newDeckButton = document.querySelector(".gallery__new-card");
-
   //Add the New Card Button at the end-bottom of the list of decks
-  cardList.append(newDeckButton);
+  cardListHome.append(newDeckButton);
 }
 
 // RENDER DECK-VIEW SECTION --NOT CAROUSEL--
@@ -137,18 +133,18 @@ function renderDeckView(deck) {
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
+  //New Card Button
+  const newCardButton = document.querySelector(".gallery__new-card-btn");
+
   //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
-  cardList.innerHTML = "";
+  cardListDeckView.innerHTML = "";
 
   //The cards property inside the decks object can be accessed through dot notation.
   //Loop for each card rendered from the decks object.
   deck.cards.forEach(renderCardEl);
 
-  //New Card Button
-  const newCardButton = document.querySelector(".gallery__new-card-btn");
-
   //Add the New Card Button at the end-bottom of the list of decks
-  cardList.append(newCardButton);
+  cardListDeckView.append(newCardButton);
 }
 
 // RENDER CAROUSEL SECTION
