@@ -1,3 +1,5 @@
+import { hexToString } from "./colors.js";
+
 //CREATE THE CARD
 function createCardEl(card) {
   let showingQuestion = true;
@@ -23,10 +25,6 @@ function createCardEl(card) {
     cardEl.remove();
   });
 
-  // //Card color assignment
-  // const color = hexToString(card.color);
-  // cardEl.classList.add(`card_color_${color}`);
-
   return cardEl;
 }
 
@@ -38,6 +36,10 @@ function renderDeckView(deck) {
   //Target DOM generated listed cards in the deck view page
   const cardListDeckView = document.querySelector("#deck-view .gallery__list");
 
+  //Large Gallery Title above the cards in deck-view
+  const galleryTitle = document.querySelector("#deck-view .gallery__title");
+  galleryTitle.textContent = deck.name;
+
   //New Card Button
   const newCardButton = deckViewSection.querySelector(".gallery__new-card-btn");
 
@@ -46,8 +48,17 @@ function renderDeckView(deck) {
 
   //The cards property inside the decks object can be accessed through dot notation.
   //Loop for each card rendered from the decks object.
-  deck.cards.array.forEach((card) => {
+  deck.cards.forEach((card) => {
     const cardEl = createCardEl(card);
+
+    //Card color assignment by targeting the deck to (card) color
+    const color = hexToString(deck.color);
+    cardEl.classList.add(`card_color_${color}`); //This color style is in card.css
+
+    //Small Card Title at the top of each card in deck-view
+    const cardTitle = cardEl.querySelector(".card__title");
+    cardTitle.textContent = card.question;
+
     cardListDeckView.prepend(cardEl);
   });
 
