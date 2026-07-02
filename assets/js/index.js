@@ -8,6 +8,7 @@ import { renderDeckView } from "./deck-view.js";
 const homeSection = document.querySelector("#home");
 // const myDeckSection = document.querySelector("#home");
 // const aboutSection = document.querySelector("#about");
+const deckViewSection = document.querySelector("#deck-view");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
@@ -52,11 +53,11 @@ function createDeckEl(item) {
   return cardEl;
 }
 
-// RENDER HOME SECTION
-function renderHomeView() {
+// SHOW HOME SECTION
+function showHomeView() {
   homeSection.style.display = "block";
   // aboutSection.style.display = "none";
-  // deckViewSection.style.display = "none";
+  deckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
@@ -66,7 +67,7 @@ function renderHomeView() {
   //Container area where DOM Decks are rendered
   const cardListHome = document.querySelector("#home .gallery__list");
 
-  //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
+  //innerHTML assigned to an empty string, clears the gallery list before adding new cards.
   cardListHome.innerHTML = "";
 
   //Loop for each deck rendered from the decks object.
@@ -79,33 +80,33 @@ function renderHomeView() {
   cardListHome.append(newDeckButton);
 }
 
-// RENDER DECK-VIEW SECTION is already imported from deck-view.js
-// function renderDeckView(deck) {
-//   homeSection.style.display = "none";
-//   // aboutSection.style.display = "none";
-//   deckViewSection.style.display = "block";
-//   carouselSection.style.display = "none";
-//   notFoundSection.style.display = "none";
-
-//   renderDeckView(deck);
-// }
-
-// RENDER CAROUSEL SECTION
-function renderCarouselSection(deck) {
+// SHOW DECK-VIEW SECTION
+function showDeckView(deck) {
   homeSection.style.display = "none";
   // aboutSection.style.display = "none";
-  // deckViewSection.style.display = "none";
+  deckViewSection.style.display = "block";
+  carouselSection.style.display = "none";
+  notFoundSection.style.display = "none";
+
+  renderDeckView(deck);
+}
+
+// SHOW CAROUSEL SECTION
+function showCarouselView(deck) {
+  homeSection.style.display = "none";
+  // aboutSection.style.display = "none";
+  deckViewSection.style.display = "none";
   carouselSection.style.display = "flex";
   notFoundSection.style.display = "none";
 
   renderCarouselView(deck);
 }
 
-// RENDER NOT-FOUND SECTION
+// SHOW NOT-FOUND SECTION
 function renderNotFoundView() {
   homeSection.style.display = "none";
   // aboutSection.style.display = "none";
-  // deckViewSection.style.display = "none";
+  deckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "flex";
 
@@ -120,12 +121,14 @@ function renderNotFoundView() {
 function router() {
   const hash = window.location.hash.slice(1) || "home";
 
+  //HOME-VIEW
   if (hash === "home" || hash === "") {
     mainElement.classList.remove("page__main-content_type_carousel");
     mainElement.classList.add("page__main-content");
 
-    //Render Home Page Section
-    renderHomeView();
+    showHomeView();
+
+    //CAROUSEL-VIEW
   } else if (hash.startsWith("carousel/")) {
     mainElement.classList.remove("page__main-content");
     mainElement.classList.add("page__main-content_type_carousel");
@@ -136,8 +139,9 @@ function router() {
 
     const cardLocation = getDeckByID(cardId);
 
-    //Render Carousel Section
-    renderCarouselSection(cardLocation);
+    showCarouselView(cardLocation);
+
+    //DECK-VIEW
   } else if (hash.startsWith("deck-view/")) {
     mainElement.classList.remove("page__main-content_type_carousel");
     mainElement.classList.add("page__main-content");
@@ -148,13 +152,13 @@ function router() {
 
     const cardLocation = getDeckByID(cardId);
 
-    //Render Deck View Section
-    renderDeckView(cardLocation);
+    showDeckView(cardLocation);
+
+    //PAGE-NOT-FOUND 404
   } else {
     mainElement.classList.remove("page__main-content_type_carousel");
     mainElement.classList.remove("page__main-content");
 
-    //Render "404 Not Found" Section
     renderNotFoundView();
   }
 }
