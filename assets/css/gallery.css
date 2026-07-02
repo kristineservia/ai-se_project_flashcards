@@ -54,3 +54,12 @@
   background-color: #c5c5c5;
   color: #1a1a1a;
 }
+
+.gallery__practice-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
