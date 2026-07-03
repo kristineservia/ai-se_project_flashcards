@@ -4,16 +4,32 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 20px 20px;
+  margin: 0 20px 20px 20px;
 }
 
-/* "Individual Card Titles" */
+/* "Individual Deck Titles" */
 .card__title {
   margin: 0;
   font-size: 20px;
   line-height: 1.2;
-  padding: 20px 0 0 20px;
+  padding: 20px 20px 0 20px;
 }
+
+/* "Individual Card Questions" */
+.card__data {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 20px 20px 0 20px;
+}
+
+/* "Individual Card Answers" */
+/* .card__answers {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 20px 20px 0 20px;
+} */
 
 .card__count {
   margin: 0;
@@ -22,26 +38,8 @@
   line-height: 1.2;
 }
 
-.card__btn_type_flip {
-  margin-top: 24px;
-  background-image: url("../images/flip.svg");
-  margin-right: 24px;
-  max-width: 24px;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  opacity: 0.5;
-  z-index: 2;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.card__btn_type_delete {
-  margin-right: 20px;
-  max-width: 24px;
+.card__btn {
+  width: 24px;
   height: 24px;
   background-color: transparent;
   border: none;
@@ -49,6 +47,14 @@
   cursor: pointer;
   opacity: 0.5;
   z-index: 2;
+}
+
+.card__btn_type_flip {
+  background-image: url("../images/flip.svg");
+}
+
+.card__btn_type_delete {
+  background-image: url("../images/delete.svg");
 }
 
 .card__btn_type_delete:hover {
@@ -90,4 +96,9 @@
 }
 .card_color_yellow {
   background-color: #f5d770;
+}
+
+/*Card-color that gives the answers to card questions*/
+.card_color_white {
+  background-color: white;
 }

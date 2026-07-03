@@ -21,7 +21,7 @@ function createDeckEl(item) {
   //Creating a clone of the card to form a deck
   const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
-  //Assigning each card in a deck their corresponding title
+  //Large Deck Title displaying at the top of home page
   cardEl.querySelector(".card__title").textContent = item.name;
 
   //Assigning each card in a deck the text "10 cards" num of cards == length of array

@@ -10,13 +10,24 @@ function createCardEl(card) {
   //Creating a clone of the card to form a deck
   const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
-  //Assigning each card in a deck their corresponding title
-  cardEl.querySelector(".card__title").textContent = card.name;
+  //Card Question displayed on card in deck-view
+  const cardContent = cardEl.querySelector(".card__data");
+  cardContent.textContent = card.question;
 
   //Flip Button Function
   const flipBtn = cardEl.querySelector(".card__btn_type_flip");
+
   flipBtn.addEventListener("click", () => {
     showingQuestion = !showingQuestion;
+
+    //Step 6: Toggle between showing the question in the deck color, and showing the answer in white color card.
+    if (showingQuestion === true) {
+      cardContent.textContent = card.question;
+      cardEl.classList.remove("card_color_white");
+    } else if (showingQuestion === false) {
+      cardContent.textContent = card.answer;
+      cardEl.classList.add("card_color_white");
+    }
   });
 
   //Delete Button Function
@@ -54,10 +65,6 @@ function renderDeckView(deck) {
     //Card color assignment by targeting the deck to (card) color
     const color = hexToString(deck.color);
     cardEl.classList.add(`card_color_${color}`); //This color style is in card.css
-
-    //Small Card Title at the top of each card in deck-view
-    const cardTitle = cardEl.querySelector(".card__title");
-    cardTitle.textContent = card.question;
 
     cardListDeckView.prepend(cardEl);
   });
