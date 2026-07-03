@@ -8,10 +8,18 @@
 .gallery__practice-btn {
   width: 103px;
   height: 44px;
+  border: none;
   border-radius: 8px;
   padding: 12px 16px 14px 16px;
-  color: #1a1a1a;
-  background-image: linear-gradient(#ffffff 0%, #ffffff 30%);
+  background-blend-mode: overlay;
+  background:
+    linear-gradient(0deg, #1a1a1a, #1a1a1a),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 55.81%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+  color: white;
 }
 
 .gallery__practice-btn-wrapper {
@@ -19,8 +27,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 /*Styles for the New Deck Button, inside a list element,to wrap alongside the other listed decks*/

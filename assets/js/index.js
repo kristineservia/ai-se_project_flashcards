@@ -12,6 +12,8 @@ const deckViewSection = document.querySelector("#deck-view");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
+const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
+let currentDeck = null;
 
 //CREATE THE DECK
 function createDeckEl(item) {
@@ -52,6 +54,11 @@ function createDeckEl(item) {
 
   return cardEl;
 }
+
+//PRACTICE BUTTON -Connection from Deck-view to Carousel-view via Practice button
+practiceButton.addEventListener("click", () => {
+  window.location.hash = `#carousel/${currentDeck.id}`;
+});
 
 // SHOW HOME SECTION
 function showHomeView() {
@@ -153,6 +160,9 @@ function router() {
     const cardLocation = getDeckByID(cardId);
 
     showDeckView(cardLocation);
+
+    //Update currentDeck with the new deck just loaded
+    currentDeck = cardLocation;
 
     //PAGE-NOT-FOUND 404
   } else {

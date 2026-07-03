@@ -1,5 +1,5 @@
 .page {
-  margin: 0 auto;
+  margin: 0px auto;
   background-color: #ececec;
   padding: 20px 40px 32px 40px;
   max-width: 1440px;
@@ -14,7 +14,7 @@
 
 .page__main-content {
   margin-top: 60px;
-  margin-bottom: 138px;
+  margin-bottom: 0px 20px 138px 20px;
   flex-grow: 1;
 }
 

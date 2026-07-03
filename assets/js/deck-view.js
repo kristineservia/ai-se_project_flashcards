@@ -20,7 +20,7 @@ function createCardEl(card) {
   flipBtn.addEventListener("click", () => {
     showingQuestion = !showingQuestion;
 
-    //Step 6: Toggle between showing the question in the deck color, and showing the answer in white color card.
+    //Toggle between showing the question, and showing the answer in white color card.
     if (showingQuestion === true) {
       cardContent.textContent = card.question;
       cardEl.classList.remove("card_color_white");
@@ -53,6 +53,14 @@ function renderDeckView(deck) {
 
   //New Card Button
   const newCardButton = deckViewSection.querySelector(".gallery__new-card-btn");
+
+  //PRACTICE BUTTON
+  // const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
+
+  //Connecting Practice button to Carousel-view in Hash Router (Moved to router in index.js)
+  // practiceButton.addEventListener("click", () => {
+  //   window.location.hash = `#carousel/${deck.id}`;
+  // });
 
   //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
   cardListDeckView.innerHTML = "";
