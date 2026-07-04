@@ -23,14 +23,6 @@
   padding: 20px 20px 0 20px;
 }
 
-/* "Individual Card Answers" */
-/* .card__answers {
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.2;
-  padding: 20px 20px 0 20px;
-} */
-
 .card__count {
   margin: 0;
   font-weight: 400;
@@ -51,6 +43,10 @@
 
 .card__btn_type_flip {
   background-image: url("../images/flip.svg");
+}
+
+.card__btn_type_flip:hover {
+  opacity: 1;
 }
 
 .card__btn_type_delete {
