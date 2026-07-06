@@ -33,18 +33,6 @@ My Flashcard App features:
 
 ![Git Basics, Deck Answer](./assets/images/screenshots/Screenshot-02.png)
 
-![Web Tech Terms, Deck Question](./assets/images/screenshots/Screenshot-03.png)
-
-![Web Tech Terms, Deck Answer](./assets/images/screenshots/Screenshot-04.png)
-
-![HTML Basics, Deck Question](./assets/images/screenshots/Screenshot-05.png)
-
-![HTML Basics, Deck Answer](./assets/images/screenshots/Screenshot-06.png)
-
-![CSS Flexbox, Deck Question](./assets/images/screenshots/Screenshot-07a.png)
-
-![CSS Flexbox, Deck Answer](./assets/images/screenshots/Screenshot-07b.png)
-
 ## Deployed site
 
 Check out [Flashcards](https://kristineservia.github.io/ai-se_project_flashcards/) on GitHub Pages.
