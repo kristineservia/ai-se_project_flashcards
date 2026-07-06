@@ -46,7 +46,7 @@
 }
 
 .card__btn_type_flip:hover {
-  opacity: 1;
+  opacity: 1.5;
 }
 
 .card__btn_type_delete {
@@ -54,7 +54,7 @@
 }
 
 .card__btn_type_delete:hover {
-  opacity: 1;
+  opacity: 1.5;
 }
 
 .card {
