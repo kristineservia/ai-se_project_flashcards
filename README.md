@@ -29,6 +29,8 @@ My Flashcard App features:
 
 ![Flashcard App Homepage](./assets/images/screenshots/Screenshot-00.png)
 
+![Flashcard App Deck View](./assets/images/screenshots/Screenshot-08.png)
+
 ![Git Basics, Deck Question](./assets/images/screenshots/Screenshot-01.png)
 
 ![Git Basics, Deck Answer](./assets/images/screenshots/Screenshot-02.png)
