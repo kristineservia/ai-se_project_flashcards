@@ -14,11 +14,17 @@
 
 .page__main-content {
   margin-top: 60px;
-  margin-bottom: 0px 20px 138px 20px;
+  margin-bottom: 138px;
   flex-grow: 1;
 }
 
 /*Carousel style applied*/
 .page__main-content_type_carousel {
   margin-top: 106px;
+}
+
+@media screen and (max-width: 600px) {
+  .page {
+    padding: 20px;
+  }
 }

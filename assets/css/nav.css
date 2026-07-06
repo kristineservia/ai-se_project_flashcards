@@ -17,3 +17,11 @@
   opacity: 0.5;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 600px) {
+  .nav__links {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+  }
+}

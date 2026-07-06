@@ -79,3 +79,12 @@
   background-color: #c5c5c5;
   color: #1a1a1a;
 }
+
+@media screen and (max-width: 600px) {
+  .gallery__title {
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 32px;
+    line-height: 100%;
+  }
+}

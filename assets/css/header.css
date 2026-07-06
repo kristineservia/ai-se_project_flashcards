@@ -18,3 +18,15 @@
   letter-spacing: -0.24px;
   text-decoration: none;
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 20px;
+    /* gap: clamp(16px, 10vw, 72px); */
+    box-sizing: border-box;
+  }
+
+  .header__title {
+    font-size: 20px;
+  }
+}
