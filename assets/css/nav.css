@@ -18,10 +18,20 @@
   text-decoration: underline;
 }
 
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 600px) {
   .nav__links {
     display: flex;
     flex-direction: row;
     white-space: nowrap;
+    gap: 10px;
+    padding: 20px 25px 20px 0px;
+  }
+
+  .nav__link {
+    line-height: 1;
+    font-weight: 500;
+    font-size: 16px;
   }
 }

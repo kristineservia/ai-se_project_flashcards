@@ -25,11 +25,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  /* .page {
-    padding: 20px 0px;
-  } */
-
   .page__main-content {
     margin-top: 20px;
+    width: 393px;
   }
 }

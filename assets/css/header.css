@@ -21,6 +21,7 @@
 
 @media screen and (max-width: 600px) {
   .header {
+    width: 393px;
     padding: 20px;
     /* gap: clamp(16px, 10vw, 72px); */
     box-sizing: border-box;
@@ -28,5 +29,6 @@
 
   .header__title {
     font-size: 20px;
+    font-weight: 900;
   }
 }
