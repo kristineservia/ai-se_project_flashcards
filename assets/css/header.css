@@ -1,9 +1,12 @@
 .header {
-  margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  margin: 0 auto;
+  /* width: 100%; */
+  width: calc(100% - 10px);
 }
 
 .header__title {
@@ -21,10 +24,10 @@
 
 @media screen and (max-width: 600px) {
   .header {
-    width: 393px;
-    padding: 20px;
-    /* gap: clamp(16px, 10vw, 72px); */
-    box-sizing: border-box;
+    max-width: 320px;
+    padding-top: 20px;
+    margin: 0px auto;
+    gap: 15px;
   }
 
   .header__title {

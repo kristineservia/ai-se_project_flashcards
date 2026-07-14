@@ -22,9 +22,6 @@
 
 @media screen and (max-width: 600px) {
   .nav__links {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
     gap: 10px;
     padding: 20px 25px 20px 0px;
   }

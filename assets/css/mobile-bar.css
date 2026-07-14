@@ -1,13 +1,19 @@
+/* MEDIA QUERY AT 600px */
+
 @media screen and (max-width: 600px) {
-  .gallery {
-    width: 393px;
+  .page {
+    padding-bottom: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
+  /* HOME VIEW BUTTON */
 
   .gallery__new-card-btn,
   .gallery__practice-btn {
     position: fixed;
-    left: 0px;
-    right: 0px;
+    /* left: 0px;
+    right: 0px; */
     bottom: 60px;
     padding: 12px 20px 12px 20px;
     border-radius: 8px;
@@ -22,26 +28,30 @@
   }
 
   .gallery__new-card-btn {
-    /* margin: 0px 0px 0px 0px; */
-    width: 100%;
+    left: 0px;
+    right: 0px;
+    /* width: calc(50% - 26px);
+    max-width: 170px; */
+    margin: 0px auto 15px auto;
     height: 44px;
-    left: 60px;
   }
 
+  /* DECK VIEW BUTTONS */
+
   .gallery__practice-btn {
-    margin: 0px auto;
-    width: calc(50% - 6px - 40px);
-    max-width: 170px;
+    /* margin-bottom: 15px; */
+    margin: 0px auto 15px auto;
+    left: calc(57% - 26px);
+    width: 137px;
     height: 44px;
-    left: 80px;
   }
 
   .gallery__new-card-btn_location_deck-view {
-    margin: 0px auto;
-    width: calc(50% - 6px);
-    max-width: 170px;
+    margin: 0px auto 15px auto;
+    width: calc(50% - 26px);
+    max-width: 150px;
     height: 44px;
-    right: 550px;
+    left: -170px;
     background: #cccccccc;
     color: #1a1a1a80;
   }
@@ -49,10 +59,6 @@
   .gallery__new-card:hover {
     background-color: #1a1a1a;
     color: white;
-  }
-
-  .page {
-    padding-bottom: 100px;
   }
 
   .page::after {
@@ -71,20 +77,70 @@
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 393px;
+    right: 0px;
+    width: 320px;
     height: 100px;
-    margin: 0px 0px 0px 40px;
+    margin: 0px auto;
     z-index: 3;
     background-color: #ececec;
   }
 
   .footer__text {
     position: fixed;
-    bottom: 0px;
+    bottom: 30px;
     font-size: 16px;
-    padding: 20px 232px 20px 20px;
-    width: 393px;
+  }
+
+  /* CAROUSEL VIEW SECTION & BUTTONS */
+
+  .carousel__title {
+    margin: 0px auto 30px auto;
+  }
+
+  .carousel__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      "card card card"
+      "left flip right";
+
+    gap: 16px;
+    width: calc(100% - 200px);
+    max-width: 100%;
+  }
+
+  .carousel__card {
+    width: 353px;
+    height: 420px;
+    justify-self: center;
+  }
+
+  .carousel__btn_type_left {
+    justify-self: start;
+    z-index: 4;
+  }
+
+  .carousel__btn_type_flip {
+    justify-self: center;
+    margin-top: 10px;
+    z-index: 4;
+  }
+
+  .carousel__btn_type_right {
+    justify-self: end;
+    z-index: 4;
   }
 }
 
-/* TYJ! */
+/* MEDIA QUERY AT 393px */
+
+@media screen and (max-width: 393px) {
+  .carousel {
+    align-items: flex-start;
+  }
+
+  .carousel__title {
+    align-items: flex-start;
+  }
+}
