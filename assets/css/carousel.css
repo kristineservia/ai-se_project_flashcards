@@ -60,6 +60,10 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  box-shadow:
+    1px -1px 2px 0px rgba(0, 0, 0, 0.25) inset,
+    -1px 2px 2px 0px rgba(255, 255, 255, 0.7) inset,
+    0px 8px 24px 4px rgba(0, 0, 0, 0.25);
 }
 
 .carousel__card-text {
@@ -74,6 +78,7 @@
 
 .carousel__btn_type_left {
   grid-area: left;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .carousel__btn_type_left::before {
@@ -97,6 +102,7 @@
 
 .carousel__btn_type_right {
   grid-area: right;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .carousel__btn_type_right::before {
@@ -118,6 +124,7 @@
   background-position: center;
   background-size: auto;
   justify-self: center;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 /* CAROUSEL CARD COLOR */
@@ -143,4 +150,64 @@
 /*Card-color that gives the answers to card questions*/
 .carousel__card_color_white {
   background-color: white;
+}
+
+/* MEDIA QUERY AT 600px */
+
+@media screen and (max-width: 600px) {
+  .carousel__title {
+    margin: 0px auto 30px auto;
+  }
+
+  .carousel__card-text {
+    padding-left: 10px;
+  }
+
+  .carousel__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      "card card card"
+      "left flip right";
+
+    gap: 16px;
+    width: calc(100% - 200px);
+    max-width: 100%;
+  }
+
+  .carousel__card {
+    width: 353px;
+    height: 420px;
+    justify-self: center;
+    z-index: 4;
+  }
+
+  .carousel__btn_type_left {
+    justify-self: start;
+    z-index: 4;
+  }
+
+  .carousel__btn_type_flip {
+    justify-self: center;
+    margin-top: 10px;
+    z-index: 4;
+  }
+
+  .carousel__btn_type_right {
+    justify-self: end;
+    z-index: 4;
+  }
+}
+
+/* MEDIA QUERY AT 393px */
+
+@media screen and (max-width: 393px) {
+  .carousel {
+    align-items: flex-start;
+  }
+
+  .carousel__title {
+    align-items: flex-start;
+  }
 }

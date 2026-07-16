@@ -2,7 +2,7 @@
 
 @media screen and (max-width: 600px) {
   .page {
-    padding-bottom: 100px;
+    padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -12,8 +12,6 @@
   .gallery__new-card-btn,
   .gallery__practice-btn {
     position: fixed;
-    /* left: 0px;
-    right: 0px; */
     bottom: 60px;
     padding: 12px 20px 12px 20px;
     border-radius: 8px;
@@ -30,8 +28,6 @@
   .gallery__new-card-btn {
     left: 0px;
     right: 0px;
-    /* width: calc(50% - 26px);
-    max-width: 170px; */
     margin: 0px auto 15px auto;
     height: 44px;
   }
@@ -39,11 +35,9 @@
   /* DECK VIEW BUTTONS */
 
   .gallery__practice-btn {
-    /* margin-bottom: 15px; */
     margin: 0px auto 15px auto;
-    left: calc(57% - 26px);
-    width: 137px;
-    height: 44px;
+    left: calc(60% - 26px);
+    width: 140px;
   }
 
   .gallery__new-card-btn_location_deck-view {
@@ -52,6 +46,7 @@
     max-width: 150px;
     height: 44px;
     left: -170px;
+    /* bottom: 0px; */
     background: #cccccccc;
     color: #1a1a1a80;
   }
@@ -66,11 +61,15 @@
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 5px;
     height: 200px;
     background: linear-gradient(to bottom, transparent 0%, #ececec 35%);
     z-index: 2;
     pointer-events: none;
+  }
+
+  .page_no-mobile-bar::after {
+    display: none;
   }
 
   .footer {
@@ -90,57 +89,13 @@
     bottom: 30px;
     font-size: 16px;
   }
+}
 
-  /* CAROUSEL VIEW SECTION & BUTTONS */
-
-  .carousel__title {
-    margin: 0px auto 30px auto;
-  }
-
-  .carousel__grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-
-    grid-template-areas:
-      "card card card"
-      "left flip right";
-
-    gap: 16px;
-    width: calc(100% - 200px);
-    max-width: 100%;
-  }
-
-  .carousel__card {
-    width: 353px;
-    height: 420px;
-    justify-self: center;
-  }
-
-  .carousel__btn_type_left {
-    justify-self: start;
-    z-index: 4;
-  }
-
-  .carousel__btn_type_flip {
-    justify-self: center;
-    margin-top: 10px;
-    z-index: 4;
-  }
-
-  .carousel__btn_type_right {
-    justify-self: end;
-    z-index: 4;
+@media screen and (max-width: 450px) {
+  .page_location_carousel .footer {
+    position: static;
   }
 }
 
-/* MEDIA QUERY AT 393px */
-
-@media screen and (max-width: 393px) {
-  .carousel {
-    align-items: flex-start;
-  }
-
-  .carousel__title {
-    align-items: flex-start;
-  }
-}
+/* CAROUSEL VIEW MEDIA QUERY IN carousel.css */
+/* TYJ! */
