@@ -80,6 +80,16 @@
   color: #1a1a1a;
 }
 
+/* Drop Shadow added to New Deck card on large screens, home and deck views, until screen reaches below 600px */
+@media screen and (min-width: 600px) {
+  .gallery__new-card-btn {
+    box-shadow:
+      1px -1px 2px 0px #00000040 inset,
+      -1px 2px 2px 0px #ffffffb2 inset,
+      0px 2px 8px 0px #0000001a;
+  }
+}
+
 /* MEDIA QUERY AT 600px*/
 
 @media screen and (max-width: 600px) {
