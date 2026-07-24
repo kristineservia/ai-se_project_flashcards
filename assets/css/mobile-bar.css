@@ -1,6 +1,6 @@
 /* MEDIA QUERY AT 600px */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (min-width: 315px) {
   .page {
     padding-bottom: 20px;
     padding-left: 20px;
@@ -33,10 +33,26 @@
   }
 
   /* DECK VIEW BUTTONS */
+  /* Positioning the Practice button in small screens using CSS Grid */
+  .gallery__practice-btn-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    max-width: 325px;
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  .gallery__title {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
 
   .gallery__practice-btn {
+    grid-column: 2;
+    justify-self: end;
     margin: 0px auto 15px auto;
-    left: calc(60% - 26px);
+    /* left: calc(60% - 26px); */
     width: 140px;
   }
 
