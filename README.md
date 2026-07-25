@@ -49,6 +49,10 @@ My Flashcard App features:
 
 ![Git Basics, Carousel Mobile Answer](./assets/images/screenshots/09_newSS_carousel-mobile-A.png)
 
+## Project Pitch Video
+
+Check out the [Project Pitch](https://drive.google.com/file/d/1qZKZBR5ozKY_FJEb1rW19yw3hZJLAMun/view?usp=sharing) short video, where I decribe my project, and a challenge I faced while buidling it.
+
 ## Deployed site
 
 Check out [Flashcards](https://kristineservia.github.io/ai-se_project_flashcards/) on GitHub Pages.
