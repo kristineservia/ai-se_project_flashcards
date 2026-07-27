@@ -5,15 +5,6 @@
   align-items: center;
 }
 
-/* .carousel__row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: auto;
-} */
-
 .carousel__grid {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -172,7 +163,6 @@
       "left flip right";
 
     gap: 16px;
-    width: calc(100% - 200px);
     max-width: 100%;
   }
 
