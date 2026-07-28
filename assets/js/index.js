@@ -5,7 +5,7 @@ import { renderDeckView } from "./deck-view.js";
 
 //In index.js, #home is "targeting the element" with the id of home.
 //In index.html, The href="#home" "is the link" that corresponds to the id="home"
-const homeSection = document.querySelector("#home");
+const homeViewSection = document.querySelector("#home");
 // const myDeckSection = document.querySelector("#home");
 // const aboutSection = document.querySelector("#about");
 const deckViewSection = document.querySelector("#deck-view");
@@ -60,16 +60,21 @@ practiceButton.addEventListener("click", () => {
   window.location.hash = `#carousel/${currentDeck.id}`;
 });
 
-// SHOW HOME SECTION
-function showHomeView() {
-  homeSection.style.display = "block";
-  // aboutSection.style.display = "none";
+function showView(currentSection, display) {
+  homeViewSection.style.display = "none";
   deckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
+  currentSection.style.display = display;
+}
+
+// SHOW HOME SECTION
+function seeHomeView() {
+  showView(homeViewSection, "block");
+
   //New Deck Button
-  const newDeckButton = homeSection.querySelector(".gallery__new-card");
+  const newDeckButton = homeViewSection.querySelector(".gallery__new-card");
 
   //Container area where DOM Decks are rendered
   const cardListHome = document.querySelector("#home .gallery__list");
@@ -88,34 +93,22 @@ function showHomeView() {
 }
 
 // SHOW DECK-VIEW SECTION
-function showDeckView(deck) {
-  homeSection.style.display = "none";
-  // aboutSection.style.display = "none";
-  deckViewSection.style.display = "block";
-  carouselSection.style.display = "none";
-  notFoundSection.style.display = "none";
+function seeDeckView(deck) {
+  showView(deckViewSection, "block");
 
   renderDeckView(deck);
 }
 
 // SHOW CAROUSEL SECTION
-function showCarouselView(deck) {
-  homeSection.style.display = "none";
-  // aboutSection.style.display = "none";
-  deckViewSection.style.display = "none";
-  carouselSection.style.display = "flex";
-  notFoundSection.style.display = "none";
+function seeCarouselView(deck) {
+  showView(carouselSection, "flex");
 
   renderCarouselView(deck);
 }
 
 // SHOW NOT-FOUND SECTION
-function renderNotFoundView() {
-  homeSection.style.display = "none";
-  // aboutSection.style.display = "none";
-  deckViewSection.style.display = "none";
-  carouselSection.style.display = "none";
-  notFoundSection.style.display = "flex";
+function seeNotFoundView() {
+  showView(notFoundSection, "flex");
 
   mainElement.classList.remove("page__main-content");
 }
@@ -136,7 +129,7 @@ function router() {
     //Display linear gradient style behind mobile-bar in home view
     mainElement.classList.remove("page_no-mobile-bar");
 
-    showHomeView();
+    seeHomeView();
 
     //CAROUSEL-VIEW
   } else if (hash.startsWith("carousel/")) {
@@ -152,7 +145,7 @@ function router() {
 
     const cardLocation = getDeckByID(cardId);
 
-    showCarouselView(cardLocation);
+    seeCarouselView(cardLocation);
 
     //DECK-VIEW
   } else if (hash.startsWith("deck-view/")) {
@@ -168,7 +161,7 @@ function router() {
 
     const cardLocation = getDeckByID(cardId);
 
-    showDeckView(cardLocation);
+    seeDeckView(cardLocation);
 
     //Update currentDeck with the new deck just loaded
     currentDeck = cardLocation;
@@ -178,7 +171,7 @@ function router() {
     mainElement.classList.remove("page__main-content_type_carousel");
     mainElement.classList.remove("page__main-content");
 
-    renderNotFoundView();
+    seeNotFoundView();
   }
 }
 
