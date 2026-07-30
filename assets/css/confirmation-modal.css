@@ -11,10 +11,49 @@
   align-items: center;
 
   background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 .modal__content {
   background: white;
-  padding: 24px;
+  padding: 10px 20px;
   border-radius: 8px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 200px;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-right: 5px;
+}
+
+#modal__cancel-button {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow:
+    1px -1px 2px 0px #00000040 inset,
+    -1px 2px 2px 0px #ffffffb2 inset,
+    0px 2px 8px 0px #0000001a;
+}
+
+#modal__confirm-delete-button {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow:
+    1px -1px 2px 0px #00000040 inset,
+    -1px 2px 2px 0px #ffffffb2 inset,
+    0px 2px 8px 0px #0000001a;
 }
