@@ -1,4 +1,5 @@
 import { hexToString } from "./colors.js";
+import { renderConfirmationModal } from "./confirmation-modal.js";
 
 //CREATE THE CARD
 function createCardEl(card) {
@@ -30,10 +31,24 @@ function createCardEl(card) {
     }
   });
 
-  //Delete Button Function
+  //Delete Button Function ORIGINAL CODE
+  // const deleteButton = cardEl.querySelector(".card__btn_type_delete");
+  // deleteButton.addEventListener("click", () => {
+  //   cardEl.remove();
+  // });
+
+  //Delete Button Function NEW CODE (Source Help: ChatGPT)
+  //async (new key term)
+  //await (new key term)
   const deleteButton = cardEl.querySelector(".card__btn_type_delete");
-  deleteButton.addEventListener("click", () => {
-    cardEl.remove();
+
+  deleteButton.addEventListener("click", async () => {
+    const confirmed = await renderConfirmationModal(
+      "Are you sure you want to delete this card?",
+    );
+    if (confirmed) {
+      cardEl.remove();
+    }
   });
 
   return cardEl;
