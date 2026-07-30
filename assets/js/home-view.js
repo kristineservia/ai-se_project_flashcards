@@ -29,9 +29,7 @@ function createDeckEl(item) {
   const deleteButton = cardEl.querySelector(".card__btn_type_delete");
 
   deleteButton.addEventListener("click", async () => {
-    const confirmed = await renderConfirmationModal(
-      "Are you sure you want to delete this deck?",
-    );
+    const confirmed = await renderConfirmationModal("Delete this deck?");
     if (confirmed) {
       cardEl.remove();
     }

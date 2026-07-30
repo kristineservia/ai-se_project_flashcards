@@ -20,15 +20,23 @@ function renderConfirmationModal(text) {
   //OPTION 1) Add a Promise feature to freeze the screen & Wait for the user's answer -Source: ChatGPT
   //The dialog box will display until user clicks on one of the buttons & issue is resolved
   return new Promise((resolve) => {
-    cancelButton.onClick = () => {
-      modal.classList.add("modal__hidden");
-      resolve(false);
-    };
+    cancelButton.addEventListener(
+      "click",
+      () => {
+        modal.classList.add("modal__hidden");
+        resolve(false);
+      },
+      { once: true },
+    );
 
-    confirmDeleteButton.onClick = () => {
-      modal.classList.add("modal__hidden");
-      resolve(true);
-    };
+    confirmDeleteButton.addEventListener(
+      "click",
+      () => {
+        modal.classList.add("modal__hidden");
+        resolve(true);
+      },
+      { once: true },
+    );
   });
 }
 
