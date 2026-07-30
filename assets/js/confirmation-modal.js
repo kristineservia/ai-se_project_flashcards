@@ -31,3 +31,5 @@ function renderConfirmationModal(text) {
     };
   });
 }
+
+export { renderConfirmationModal };
