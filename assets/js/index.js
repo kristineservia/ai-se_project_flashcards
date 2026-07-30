@@ -3,7 +3,6 @@ import { hexToString } from "./colors.js";
 import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
 import { renderCarouselView } from "./carousel.js";
-import { renderConfirmationModal } from "./confirmation-modal.js";
 
 //In index.js, #home is "targeting the element" with the id of home.
 //In index.html, The href="#home" "is the link" that corresponds to the id="home"
