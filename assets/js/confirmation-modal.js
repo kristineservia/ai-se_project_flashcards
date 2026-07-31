@@ -8,36 +8,57 @@ const confirmDeleteButton = document.querySelector(
 
 const cancelButton = document.querySelector("#modal__cancel-button");
 
-// RENDER CONFIRMATION MODAL DIALOG BOX
+//Variable that will temporary hold what the user is reading in the dialog box
+let confirmAction;
 
-function renderConfirmationModal(text) {
+// RENDER CONFIRMATION MODAL DIALOG BOX
+function renderConfirmationModal(text, action) {
   //Insert a message for the particular item targeted to be deleted
   message.textContent = text;
 
+  //User confirms if they want to Delete the item or not
+  confirmAction = action;
+
   //Make the dialog box visible by removing the "hidden" class
   modal.classList.remove("modal__hidden");
-
-  //OPTION 1) Add a Promise feature to freeze the screen & Wait for the user's answer -Source: ChatGPT
-  //The dialog box will display until user clicks on one of the buttons & issue is resolved
-  return new Promise((resolve) => {
-    cancelButton.addEventListener(
-      "click",
-      () => {
-        modal.classList.add("modal__hidden");
-        resolve(false);
-      },
-      { once: true },
-    );
-
-    confirmDeleteButton.addEventListener(
-      "click",
-      () => {
-        modal.classList.add("modal__hidden");
-        resolve(true);
-      },
-      { once: true },
-    );
-  });
 }
+
+//DELETE ITEM?  (Action: Run the previous function to remove visible item & hide modal dialog box)
+confirmDeleteButton.addEventListener("click", () => {
+  confirmAction();
+  modal.classList.add("modal__hidden");
+});
+
+//CANCEL DELETION? (Action: Hide the modal dialog box by adding class modal__hidden)
+cancelButton.addEventListener("click", () => {
+  modal.classList.add("modal__hidden");
+});
+
+//OPTION 2) Delete Button Function -COMPLEX-
+//Add a Promise feature to freeze the screen, waiting for user's response on dialog box -ChatGPT
+//The dialog box will display until the user clicks on one of the buttons & issue is resolved
+//Promise()    (new term)
+//resolve()    (new term)
+//{once: true} (new term)
+
+// return new Promise((resolve) => {
+//   cancelButton.addEventListener(
+//     "click",
+//     () => {
+//       modal.classList.add("modal__hidden");
+//       resolve(false);
+//     },
+//     { once: true },
+//   );
+
+//   confirmDeleteButton.addEventListener(
+//     "click",
+//     () => {
+//       modal.classList.add("modal__hidden");
+//       resolve(true);
+//     },
+//     { once: true },
+//   );
+// });
 
 export { renderConfirmationModal };
