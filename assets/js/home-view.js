@@ -17,22 +17,25 @@ function createDeckEl(item) {
   cardEl.querySelector(".card__count").textContent =
     `${item.cards.length} cards`;
 
-  //Delete Button Function ORIGINAL CODE
-  // const deleteButton = cardEl.querySelector(".card__btn_type_delete");
-  // deleteButton.addEventListener("click", () => {
-  //   cardEl.remove();
-  // });
-
-  //Delete Button Function NEW CODE (Source Help: ChatGPT)
-  //async (new key term)
-  //await (new key term)
+  //DELETE BUTTON FUNCTION  (Help source: ChatGPT)
+  //Use .findIndex() and splice() to find and delete an item, after a dialog box prompt.
+  //findIndex() returns the index of the 1st element found in an array, that passes the testing condition given to it.
+  //It uses a callback function, ex) const indeX = deck.cards.findIndex((item) => item.id === card.id)
+  //splice() removes something from an array. ex) deck.cards.splice(1, 1) splice(start at index 1, remove index 1)
   const deleteButton = cardEl.querySelector(".card__btn_type_delete");
 
-  deleteButton.addEventListener("click", async () => {
-    const confirmed = await renderConfirmationModal("Delete this deck?");
-    if (confirmed) {
+  deleteButton.addEventListener("click", () => {
+    renderConfirmationModal("Delete this deck?", () => {
+      const deckIndex = decks.findIndex(
+        (currentDeck) => currentDeck.id === item.id,
+      );
+
+      if (deckIndex > -1) {
+        decks.splice(deckIndex, 1);
+      }
+
       cardEl.remove();
-    }
+    });
   });
 
   //Decks color assignment
