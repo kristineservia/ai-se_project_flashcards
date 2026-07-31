@@ -2,7 +2,7 @@ import { hexToString } from "./colors.js";
 import { renderConfirmationModal } from "./confirmation-modal.js";
 
 //CREATE THE CARD
-function createCardEl(card) {
+function createCardEl(card, deck) {
   let showingQuestion = true;
 
   //Connecting the Card Template to the DOM and assigning it to cardTemplate.
@@ -31,22 +31,25 @@ function createCardEl(card) {
     }
   });
 
-  //Delete Button Function ORIGINAL CODE
-  // const deleteButton = cardEl.querySelector(".card__btn_type_delete");
-  // deleteButton.addEventListener("click", () => {
-  //   cardEl.remove();
-  // });
-
-  //Delete Button Function NEW CODE (Source Help: ChatGPT)
-  //async (new key term)
-  //await (new key term)
+  //DELETE BUTTON FUNCTION  (Help source: ChatGPT)
+  //Use .findIndex() and splice() to find and delete an item, after a dialog box prompt.
+  //findIndex() returns the index of the 1st element found in an array, that passes the testing condition given to it.
+  //It uses a callback function, ex) const indeX = deck.cards.findIndex((item) => item.id === card.id)
+  //splice() removes something from an array. ex) deck.cards.splice(1, 1) splice(start at index 1, remove index 1)
   const deleteButton = cardEl.querySelector(".card__btn_type_delete");
 
-  deleteButton.addEventListener("click", async () => {
-    const confirmed = await renderConfirmationModal("Delete this card?");
-    if (confirmed) {
+  deleteButton.addEventListener("click", () => {
+    renderConfirmationModal("Delete this card?", () => {
+      const cardIndex = deck.cards.findIndex(
+        (currentCard) => currentCard.id === card.id,
+      );
+
+      if (cardIndex > -1) {
+        deck.cards.splice(cardIndex, 1);
+      }
+
       cardEl.remove();
-    }
+    });
   });
 
   return cardEl;
@@ -67,21 +70,13 @@ function renderDeckView(deck) {
   //New Card Button
   const newCardButton = deckViewSection.querySelector(".gallery__new-card-btn");
 
-  //PRACTICE BUTTON
-  // const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
-
-  //Connecting Practice button to Carousel-view in Hash Router (Moved to router in index.js)
-  // practiceButton.addEventListener("click", () => {
-  //   window.location.hash = `#carousel/${deck.id}`;
-  // });
-
   //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
   cardListDeckView.innerHTML = "";
 
   //The cards property inside the decks object can be accessed through dot notation.
   //Loop for each card rendered from the decks object.
   deck.cards.forEach((card) => {
-    const cardEl = createCardEl(card);
+    const cardEl = createCardEl(card, deck);
 
     //Card color assignment by targeting the deck to (card) color
     const color = hexToString(deck.color);
