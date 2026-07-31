@@ -34,31 +34,4 @@ cancelButton.addEventListener("click", () => {
   modal.classList.add("modal__hidden");
 });
 
-//OPTION 2) Delete Button Function -COMPLEX-
-//Add a Promise feature to freeze the screen, waiting for user's response on dialog box -ChatGPT
-//The dialog box will display until the user clicks on one of the buttons & issue is resolved
-//Promise()    (new term)
-//resolve()    (new term)
-//{once: true} (new term)
-
-// return new Promise((resolve) => {
-//   cancelButton.addEventListener(
-//     "click",
-//     () => {
-//       modal.classList.add("modal__hidden");
-//       resolve(false);
-//     },
-//     { once: true },
-//   );
-
-//   confirmDeleteButton.addEventListener(
-//     "click",
-//     () => {
-//       modal.classList.add("modal__hidden");
-//       resolve(true);
-//     },
-//     { once: true },
-//   );
-// });
-
 export { renderConfirmationModal };
