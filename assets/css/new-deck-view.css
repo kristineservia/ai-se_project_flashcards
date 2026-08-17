@@ -1,0 +1,12 @@
+.new-deck-view__color-picker {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.new-deck-view__color-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
