@@ -6,11 +6,11 @@ import { renderCarouselView } from "./carousel.js";
 
 //In index.js, #home is "targeting the element" with the id of home.
 //In index.html, The href="#home" "is the link" that corresponds to the id="home"
-// const myDeckSection = document.querySelector("#home");
-// const aboutSection = document.querySelector("#about");
 const homeViewSection = document.querySelector("#home");
 const deckViewSection = document.querySelector("#deck-view");
+const newDeckViewSection = document.querySelector("#new-deck-view");
 const carouselSection = document.querySelector("#carousel");
+const aboutSection = document.querySelector("#about");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
@@ -25,6 +25,7 @@ practiceButton.addEventListener("click", () => {
 function showView(currentSection, display) {
   homeViewSection.style.display = "none";
   deckViewSection.style.display = "none";
+  newDeckViewSection.style.display = "none";
   carouselSection.style.display = "none";
   notFoundSection.style.display = "none";
 
@@ -43,6 +44,14 @@ function seeDeckView(deck) {
   showView(deckViewSection, "block");
 
   renderDeckView(deck);
+}
+
+// SHOW NEW-DECK-VIEW SECTION
+function seeNewDeckView() {
+  showView(newDeckViewSection, "block");
+
+  mainElement.classList.remove("page__main-content_type_carousel");
+  mainElement.classList.add("page__main-content");
 }
 
 // SHOW CAROUSEL SECTION
@@ -112,8 +121,13 @@ function router() {
     //Update currentDeck with the new deck just loaded
     currentDeck = cardLocation;
 
-    //PAGE-NOT-FOUND 404
-  } else {
+    //NEW-DECK-VIEW
+  } else if (hash === "new-deck-view") {
+    seeNewDeckView();
+  }
+
+  //PAGE-NOT-FOUND 404
+  else {
     mainElement.classList.remove("page__main-content_type_carousel");
     mainElement.classList.remove("page__main-content");
 
