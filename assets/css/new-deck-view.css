@@ -1,3 +1,8 @@
+.new-deck-view {
+  width: 670px;
+  margin: 0 auto;
+}
+
 .new-deck-view__form {
   display: grid;
   grid-template-columns: 514px;
@@ -90,7 +95,7 @@
   background-color: #f5d770;
 }
 
-.new-deck-view__submit-btn {
+.new-deck-view__submit-btn:disabled {
   width: 172px;
   height: 44px;
   border-radius: 8px;
