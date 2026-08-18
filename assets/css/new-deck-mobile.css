@@ -1,0 +1,20 @@
+@media screen and (max-width: 600px) {
+  .new-deck-view {
+    width: auto;
+    margin: 0 20px;
+  }
+
+  .new-deck-view__form {
+    grid-template-columns: 1fr;
+  }
+
+  .new-deck-view__form-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .new-deck-view__title {
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
