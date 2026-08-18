@@ -14,7 +14,15 @@ const aboutSection = document.querySelector("#about");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
+
 let currentDeck = null;
+
+//NEW DECK BUTTON
+const newDeckButton = document.querySelector("#home .gallery__new-card-btn");
+
+newDeckButton.addEventListener("click", () => {
+  window.location.hash = "new-deck-view";
+});
 
 //PRACTICE BUTTON -Connection from Deck-view to Carousel-view via Practice button
 practiceButton.addEventListener("click", () => {
