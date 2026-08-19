@@ -9,6 +9,7 @@ import { renderCarouselView } from "./carousel.js";
 const homeViewSection = document.querySelector("#home");
 const deckViewSection = document.querySelector("#deck-view");
 const newDeckViewSection = document.querySelector("#new-deck-view");
+const newDeckForm = document.querySelector("#new-deck-form");
 const carouselSection = document.querySelector("#carousel");
 const aboutSection = document.querySelector("#about");
 const notFoundSection = document.querySelector("#not-found");
@@ -23,6 +24,11 @@ const newDeckButton = document.querySelector("#home .gallery__new-card-btn");
 
 newDeckButton.addEventListener("click", () => {
   window.location.hash = "new-deck-view";
+});
+
+//NEW DECK FORM --SUBMISSION BUTTON--
+newDeckForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 });
 
 //PRACTICE BUTTON -Connection from Deck-view to Carousel-view via Practice button
