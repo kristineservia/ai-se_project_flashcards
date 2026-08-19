@@ -61,6 +61,9 @@ function seeNewDeckView() {
 
   mainElement.classList.remove("page__main-content_type_carousel");
   mainElement.classList.add("page__main-content");
+
+  //Hide mobile gradient on New Deck view
+  pageElement.classList.add("page_no-mobile-bar");
 }
 
 // SHOW CAROUSEL SECTION
@@ -101,7 +104,7 @@ function router() {
     mainElement.classList.add("page__main-content_type_carousel");
 
     //Delete linear gradient style behind mobile-bar
-    mainElement.classList.add("page_no-mobile-bar");
+    pageElement.classList.add("page_no-mobile-bar");
 
     //Split method turns "carousel/git-basics", from the URL, into an array split by a separator ("/")
     //The [1] targets the first index in the split array, the carousel string is index zero [0]
@@ -117,7 +120,7 @@ function router() {
     mainElement.classList.add("page__main-content");
 
     //Display linear gradient style behind mobile-bar in deck view
-    mainElement.classList.remove("page_no-mobile-bar");
+    pageElement.classList.remove("page_no-mobile-bar");
 
     //Split method turns "deck-view/git-basics", from the URL, into an array split by a separator ("/")
     //The [1] targets the first index in the split array, the carousel string is index zero [0]
