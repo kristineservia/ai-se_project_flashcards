@@ -90,11 +90,11 @@
 
   .footer {
     position: fixed;
-    bottom: 0px;
+    bottom: -7px;
     left: 0px;
     right: 0px;
     width: 320px;
-    height: 100px;
+    height: 49px;
     margin: 0px auto;
     z-index: 3;
     background-color: #ececec;
