@@ -13,6 +13,7 @@ const carouselSection = document.querySelector("#carousel");
 const aboutSection = document.querySelector("#about");
 const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
+const pageElement = document.querySelector(".page");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
 
 let currentDeck = null;
@@ -90,7 +91,7 @@ function router() {
     mainElement.classList.add("page__main-content");
 
     //Display linear gradient style behind mobile-bar in home view
-    mainElement.classList.remove("page_no-mobile-bar");
+    pageElement.classList.remove("page_no-mobile-bar");
 
     seeHomeView();
 
