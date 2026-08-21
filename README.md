@@ -41,7 +41,7 @@ My Flashcard App features:
 
 ![Flashcard App, Confirmation Modal](./assets/images/screenshots/00b_newSS_home.png)
 
-![Flashcard App, Custom New Deck](./assets/images/screenshots/00c_newSS_newDeck.png)
+![Flashcard App, New Deck](./assets/images/screenshots/00c_newSS_newDeck.png)
 
 ![Flashcard App Homepage Mobile](./assets/images/screenshots/05_newSS_home-mobile.png)
 
