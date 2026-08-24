@@ -2,6 +2,7 @@ import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
+import { disableSubmitBtn } from "./new-deck-view.js";
 import { renderCarouselView } from "./carousel.js";
 
 //In index.js, #home is "targeting the element" with the id of home.
@@ -142,6 +143,7 @@ function router() {
     //NEW-DECK-VIEW
   } else if (hash === "new-deck-view") {
     seeNewDeckView();
+    disableSubmitBtn();
   }
 
   //PAGE-NOT-FOUND 404
