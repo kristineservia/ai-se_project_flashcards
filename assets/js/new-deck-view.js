@@ -5,3 +5,5 @@ const submitButton = formElement.querySelector(".new-deck-view__submit-btn");
 function disableSubmitBtn() {
   submitButton.disabled = false;
 }
+
+export { disableSubmitBtn };
