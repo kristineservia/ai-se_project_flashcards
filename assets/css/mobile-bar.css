@@ -51,7 +51,7 @@
   .gallery__practice-btn {
     grid-column: 2;
     justify-self: end;
-    margin: 0px auto 15px auto;
+    margin: 0px 0px 15px 0px;
     /* left: calc(60% - 26px); */
     width: 140px;
   }
