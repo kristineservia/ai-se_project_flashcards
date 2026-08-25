@@ -8,6 +8,9 @@ function disableSubmitBtn() {
 
 function submitForm(event) {
   event.preventDefault();
+
+  //new FormData() = Creates a FormData object. (event.target) = form that was submitted
+  const formData = new FormData(event.target);
 }
 
 formElement.addEventListener("submit", submitForm);
