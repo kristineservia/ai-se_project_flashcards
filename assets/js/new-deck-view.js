@@ -6,4 +6,8 @@ function disableSubmitBtn() {
   submitButton.disabled = false;
 }
 
+function submitForm(event) {
+  event.preventDefault();
+}
+
 export { disableSubmitBtn };
