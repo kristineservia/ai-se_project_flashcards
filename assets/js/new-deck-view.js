@@ -11,6 +11,9 @@ function submitForm(event) {
 
   //new FormData() = Creates a FormData object. (event.target) = form that was submitted
   const formData = new FormData(event.target);
+
+  //Turn formData into a regular object
+  const formValues = Object.fromEntries();
 }
 
 formElement.addEventListener("submit", submitForm);
