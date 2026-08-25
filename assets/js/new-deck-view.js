@@ -16,7 +16,7 @@ function submitForm(event) {
   const formValues = Object.fromEntries(formData);
 
   //Parse the textarea's values with JSON.parse()
-  const jsonData = JSON.parse();
+  const jsonData = JSON.parse(textArea.value);
 }
 
 formElement.addEventListener("submit", submitForm);
