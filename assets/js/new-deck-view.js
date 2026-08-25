@@ -10,4 +10,6 @@ function submitForm(event) {
   event.preventDefault();
 }
 
+formElement.addEventListener("submit", submitForm);
+
 export { disableSubmitBtn };
