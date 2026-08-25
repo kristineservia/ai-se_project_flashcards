@@ -13,7 +13,7 @@ function submitForm(event) {
   const formData = new FormData(event.target);
 
   //Turn formData into a regular object
-  const formValues = Object.fromEntries();
+  const formValues = Object.fromEntries(formData);
 }
 
 formElement.addEventListener("submit", submitForm);
