@@ -36,6 +36,12 @@ function submitForm(event) {
 
   //Parse the textarea's values with JSON.parse()
   const jsonData = JSON.parse(textArea.value);
+
+  //Adjust hex-color input with normalizeColor()
+  const color = normalizeColor(formValues.color);
+
+  //Adjust valid string input entries in Text Area with slugify()
+  const id = `${slugify(jsonData.name)}-${Date.now()}`;
 }
 
 formElement.addEventListener("submit", submitForm);
