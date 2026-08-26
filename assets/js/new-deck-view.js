@@ -26,21 +26,26 @@ function disableSubmitBtn() {
 }
 
 function submitForm(event) {
+  //STEP 1
   event.preventDefault();
 
+  //STEP 2
   //new FormData() = Creates a FormData object. (event.target) = form that was submitted
   const formData = new FormData(event.target);
 
   //Turn formData into a regular object
   const formValues = Object.fromEntries(formData);
 
+  //STEP 3a
   //Parse the textarea's values with JSON.parse()
   const jsonData = JSON.parse(textArea.value);
 
+  //STEP 3b
   //Adjust hex-color input with normalizeColor()
   const color = normalizeColor(formValues.color);
 
-  //Adjust valid string input entries in Text Area with slugify()
+  //STEP 3c
+  //Build a unique ID & valid string input entries in Text Area with slugify()
   const id = `${slugify(jsonData.name)}-${Date.now()}`;
 }
 
