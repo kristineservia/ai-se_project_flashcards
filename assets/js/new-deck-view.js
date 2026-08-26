@@ -2,6 +2,25 @@ const formElement = document.querySelector(".new-deck-view__form");
 const textArea = formElement.querySelector(".new-deck-view__form-input");
 const submitButton = formElement.querySelector(".new-deck-view__submit-btn");
 
+//Provided Helper Functions
+const HEX_DIGITS = /^[0-9a-fA-F]{6}$/;
+
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizeColor(color) {
+  if (!color) return "#64d583";
+  const hex = color.startsWith("#") ? color.slice(1) : color;
+  if (!HEX_DIGITS.test(hex)) return "#64d583";
+  return "#" + hex.toLowerCase();
+}
+
+//Disable/Enable Submit Button
 function disableSubmitBtn() {
   submitButton.disabled = false;
 }
