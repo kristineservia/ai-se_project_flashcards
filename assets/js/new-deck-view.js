@@ -58,6 +58,10 @@ function submitForm(event) {
     name: jsonData.name,
     cards: jsonData.cards,
   };
+
+  //STEP 4b
+  //.push() the new deck object onto the imported main decks array
+  decks.push(deck);
 }
 
 formElement.addEventListener("submit", submitForm);
