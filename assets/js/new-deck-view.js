@@ -1,3 +1,5 @@
+import { decks, getDeckByID } from "./decks.js";
+
 const formElement = document.querySelector(".new-deck-view__form");
 const textArea = formElement.querySelector(".new-deck-view__form-input");
 const submitButton = formElement.querySelector(".new-deck-view__submit-btn");
@@ -47,6 +49,15 @@ function submitForm(event) {
   //STEP 3c
   //Build a unique ID & valid string input entries in Text Area with slugify()
   const id = `${slugify(jsonData.name)}-${Date.now()}`;
+
+  //STEP 4a
+  //Create new 'deck' object
+  const deck = {
+    id: id,
+    color: color,
+    name: jsonData.name,
+    cards: jsonData.cards,
+  };
 }
 
 formElement.addEventListener("submit", submitForm);
