@@ -62,6 +62,10 @@ function submitForm(event) {
   //STEP 4b
   //.push() the new deck object onto the imported main decks array
   decks.push(deck);
+
+  //STEP 5
+  //Navigate to the new deck by setting window.location.hash to "deck/" + id
+  window.location.hash = "deck-view/" + id;
 }
 
 formElement.addEventListener("submit", submitForm);
