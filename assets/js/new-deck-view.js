@@ -47,7 +47,7 @@ function submitForm(event) {
   const color = normalizeColor(formValues.color);
 
   //STEP 3c
-  //Build a unique ID & valid string input entries in Text Area with slugify()
+  //Build a unique ID using the slugify() URL-friendly deck name and Date.now()
   const id = `${slugify(jsonData.name)}-${Date.now()}`;
 
   //STEP 4a
