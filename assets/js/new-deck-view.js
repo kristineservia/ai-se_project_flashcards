@@ -1,4 +1,4 @@
-import { decks, getDeckByID } from "./decks.js";
+import { decks } from "./decks.js";
 
 const formElement = document.querySelector(".new-deck-view__form");
 const textArea = formElement.querySelector(".new-deck-view__form-input");
@@ -67,3 +67,5 @@ function submitForm(event) {
 formElement.addEventListener("submit", submitForm);
 
 export { disableSubmitBtn };
+
+//TYJ!
