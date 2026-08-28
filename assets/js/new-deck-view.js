@@ -7,6 +7,7 @@ const submitButton = formElement.querySelector(".new-deck-view__submit-btn");
 //Provided Helper Functions
 const HEX_DIGITS = /^[0-9a-fA-F]{6}$/;
 
+//URL-friendly string modification
 function slugify(str) {
   return str
     .toLowerCase()
