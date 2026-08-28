@@ -16,6 +16,7 @@ function slugify(str) {
     .replace(/^-+|-+$/g, "");
 }
 
+//Hex-color name modification
 function normalizeColor(color) {
   if (!color) return "#64d583";
   const hex = color.startsWith("#") ? color.slice(1) : color;
