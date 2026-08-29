@@ -57,12 +57,19 @@
   }
 
   .gallery__new-card-btn_location_deck-view {
-    margin: 0px auto 15px auto;
+    left: calc(50% - 160px);
+    right: auto;
+
+    margin: 0 0 15px 0;
+    width: 150px;
+    height: 44px;
+
+    /* margin: 0px auto 15px auto;
     width: calc(50% - 26px);
     max-width: 150px;
     height: 44px;
-    left: -170px;
-    /* bottom: 0px; */
+    left: -170px; */
+
     background: #cccccccc;
     color: #1a1a1a80;
   }
