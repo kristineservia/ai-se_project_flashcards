@@ -49,11 +49,16 @@
   }
 
   .gallery__practice-btn {
-    grid-column: 2;
+    left: auto;
+    right: calc(50% - 160px);
+    margin: 0 0 15px 0;
+    width: 140px;
+
+    /* grid-column: 2;
     justify-self: end;
     margin: 0px 0px 15px 0px;
-    /* left: calc(60% - 26px); */
-    width: 140px;
+    left: calc(60% - 26px);
+    width: 140px; */
   }
 
   .gallery__new-card-btn_location_deck-view {
