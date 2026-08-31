@@ -6,6 +6,7 @@
 
   .new-deck-view__form {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .new-deck-view__title {
