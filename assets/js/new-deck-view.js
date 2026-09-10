@@ -78,17 +78,36 @@ function submitForm(event) {
   // const jsonData = JSON.parse(textArea.value); OLD METHOD
   const jsonData = parseJSON(textArea.value);
 
-  //Step 3a-2
+  //Step 3a-2  (Gate 1: Is text-area entry valid JSON?)
   if (jsonData === null) {
     showError("JSON parsing failed");
     return;
   }
 
-  //Step 3a-3
+  //Step 3a-3  (Gate 2: Is name entry valid?)
+  if (validateName(jsonData.name) === null) {
+    showError("Name must be a string between 2 and 80 characters");
+    return;
+  }
 
-  //STEP 3b
+  //Step 3a-4 (Gate 3: Are the cards an array?)
+  if (Array.isArray(jsonData.cards) === false) {
+    showError("Cards must be an array");
+    return;
+  }
+
+  //STEP 3b-1
   //Adjust hex-color input with normalizeColor()
   const color = normalizeColor(formValues.color);
+
+  //Step 3b-2  (Gate 4: Is the color name lowercase, and from the color picker?)
+  if (
+    typeof jsonData.color === "string" &&
+    jsonData.color.toLowerCase() !== color
+  ) {
+    showError("JSON color must match the selected deck color");
+    return;
+  }
 
   //STEP 3c
   //Build a unique ID using the slugify() URL-friendly deck name and Date.now()
