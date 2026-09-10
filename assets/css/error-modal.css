@@ -5,3 +5,11 @@
 .modal_type_error.modal_visible {
   display: flex;
 }
+
+.modal__content_type_error {
+  width: 320px;
+  height: 195px;
+  background-color: #ffaea5;
+  border-radius: 20px;
+  padding: 12px 10px;
+}
