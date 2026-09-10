@@ -4,8 +4,17 @@ const formElement = document.querySelector(".new-deck-view__form");
 const textArea = formElement.querySelector(".new-deck-view__form-input");
 const submitButton = formElement.querySelector(".new-deck-view__submit-btn");
 
+const errorModal = document.querySelector("#error-modal");
+const errorMessage = errorModal.querySelector(".modal__error");
+const dismissButton = errorModal.querySelector(".modal__dismiss-btn");
+
 //Provided Helper Functions
 const HEX_DIGITS = /^[0-9a-fA-F]{6}$/;
+
+//Error-Modal--Dismiss Button--Listener
+dismissButton.addEventListener("click", () => {
+  errorModal.classList.remove("modal_visible");
+});
 
 //URL-friendly string modification
 function slugify(str) {
