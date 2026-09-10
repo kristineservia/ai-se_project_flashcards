@@ -42,6 +42,15 @@ function parseJSON(jsonString) {
   }
 }
 
+//VALIDATE NAME INPUT ON FORM
+function validateName(name) {
+  if (typeof name != "string" || name.length < 2 || name.length > 80) {
+    return null;
+  }
+
+  return name;
+}
+
 //Disable/Enable Submit Button
 function disableSubmitBtn() {
   submitButton.disabled = false;
@@ -64,15 +73,18 @@ function submitForm(event) {
   //Turn formData into a regular object
   const formValues = Object.fromEntries(formData);
 
-  //STEP 3a
+  //STEP 3a-1
   //Parse the textarea's values with JSON.parse()
   // const jsonData = JSON.parse(textArea.value); OLD METHOD
   const jsonData = parseJSON(textArea.value);
 
+  //Step 3a-2
   if (jsonData === null) {
     showError("JSON parsing failed");
     return;
   }
+
+  //Step 3a-3
 
   //STEP 3b
   //Adjust hex-color input with normalizeColor()
