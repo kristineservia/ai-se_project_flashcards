@@ -22,6 +22,10 @@
   margin: 0px;
 }
 
+.modal__error {
+  margin: 10px 0px 0px;
+}
+
 .modal__dismiss-btn {
   width: 99px;
   height: 46px;
