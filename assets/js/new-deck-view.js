@@ -34,7 +34,7 @@ function normalizeColor(color) {
 }
 
 //LOOK-OUT FUNCTION TO STOP INCORRECT JSON INPUT IN THE FORM'S TEXT-AREA BOX
-function parseJson(jsonString) {
+function parseJSON(jsonString) {
   try {
     return JSON.parse(jsonString);
   } catch (error) {
@@ -45,6 +45,12 @@ function parseJson(jsonString) {
 //Disable/Enable Submit Button
 function disableSubmitBtn() {
   submitButton.disabled = false;
+}
+
+//Display Error Message Function
+function showError(message) {
+  errorMessage.textContent = message;
+  errorModal.classList.add("modal_visible");
 }
 
 function submitForm(event) {
@@ -60,7 +66,13 @@ function submitForm(event) {
 
   //STEP 3a
   //Parse the textarea's values with JSON.parse()
-  // const jsonData = JSON.parse(textArea.value);
+  // const jsonData = JSON.parse(textArea.value); OLD METHOD
+  const jsonData = parseJSON(textArea.value);
+
+  if (jsonData === null) {
+    showError("JSON parsing failed");
+    return;
+  }
 
   //STEP 3b
   //Adjust hex-color input with normalizeColor()
