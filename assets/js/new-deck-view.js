@@ -100,7 +100,7 @@ function submitForm(event) {
   //Adjust hex-color input with normalizeColor()
   const color = normalizeColor(formValues.color);
 
-  //Step 3b-2  (Gate 4: Is the color name lowercase, and from the color picker?)
+  //Step 3b-2  (Gate 4: If JSON contains a color, does it match the one on color picker?)
   if (
     typeof jsonData.color === "string" &&
     jsonData.color.toLowerCase() !== color
