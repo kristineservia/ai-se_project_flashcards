@@ -86,6 +86,12 @@ function processRefund(order, reason) {
   };
 }
 
+/**
+ * Validate the shipping label.
+ *
+ * @param {Object} labelData - Shipping label data with required fields.
+ * @returns {Object} - Validation result containing validity status and missing fields.
+ */
 function validateShippingLabel(labelData) {
   const requiredFields = ["sender", "receiver", "weight", "trackingNumber"];
   const missingFields = requiredFields.filter((field) => !labelData[field]);
