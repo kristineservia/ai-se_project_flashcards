@@ -43,6 +43,15 @@ function getRestockAlert(productName, currentStock) {
 // NEW UTILITY FUNCTIONS (NEEDS DOCUMENTATION)
 // ---------------------------------------------------------
 
+/**
+ * Applies a bulk discount on items that meet a specified quantity threshold.
+ *
+ * @param {Object[]} items - List of item objects.
+ * @param {number} threshold - Specified quantity threshold.
+ * @param {number} discountRate - Discount rate as a number.
+ * @returns {Object[]} - List of item objects with applicable prices discounted.
+ */
+
 function applyBulkDiscount(items, threshold, discountRate) {
   return items.map((item) => {
     if (item.quantity >= threshold) {
