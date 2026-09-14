@@ -45,6 +45,14 @@ function filterShipmentsByStatus(shipments, targetStatus) {
 // ADVANCED LOGISTICS FUNCTIONS (STUDENT TASKS)
 // ---------------------------------------------------------
 
+/**
+ * Calculate the fuel surcharge.
+ *
+ * @param {number} distance - The distance as a number.
+ * @param {number} fuelPrice - The fuel price as a number.
+ * @param {string} vehicleType - The type of vehicle.
+ * @returns {number} - Number of fuel surcharge.
+ */
 function calculateFuelSurcharge(distance, fuelPrice, vehicleType) {
   const baseRate = 0.05;
   const multipliers = { TRUCK: 1.5, VAN: 1.2, CAR: 1.0 };
