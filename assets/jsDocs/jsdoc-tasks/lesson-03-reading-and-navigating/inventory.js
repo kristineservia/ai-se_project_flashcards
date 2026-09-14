@@ -58,6 +58,14 @@ function calculateInventoryValue(inventory) {
   }, 0);
 }
 
+/**
+ * Generate a product SKU by combining the item's category, name, and id.
+ *
+ * @param {string} category - The category of an item provided as a string.
+ * @param {string} name - The name of an item provided as a string.
+ * @param {number} id - The id of an item provided as a number.
+ * @returns {string} - Returns the SKU as a combined string label of category, name, and id number.
+ */
 function generateProductSKU(category, name, id) {
   const prefix = category.substring(0, 3).toUpperCase();
   const code = name.substring(0, 2).toUpperCase();
