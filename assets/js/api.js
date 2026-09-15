@@ -6,3 +6,7 @@ function processResponse(response) {
   }
   return Promise.reject(`Error: ${response.status}`);
 }
+
+function getDecks() {
+  return fetch(`${baseURL}/decks`).then(processResponse);
+}
