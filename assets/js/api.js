@@ -1,4 +1,4 @@
-const baseURL = "https://se-flashcards-api.en.tripleten-services.com/v1";
+const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
 
 function processResponse(response) {
   if (response.ok) {
@@ -8,7 +8,7 @@ function processResponse(response) {
 }
 
 function getDecks() {
-  return fetch(`${baseURL}/decks`).then(processResponse);
+  return fetch(`${baseUrl}/decks`).then(processResponse);
 }
 
 export { getDecks };
