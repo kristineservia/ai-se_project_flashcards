@@ -10,3 +10,5 @@ function processResponse(response) {
 function getDecks() {
   return fetch(`${baseURL}/decks`).then(processResponse);
 }
+
+export { getDecks };
