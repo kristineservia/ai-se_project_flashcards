@@ -4,6 +4,7 @@ import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
 import { disableSubmitBtn } from "./new-deck-view.js";
 import { renderCarouselView } from "./carousel.js";
+import { getDecks } from "./api.js";
 
 //In index.js, #home is "targeting the element" with the id of home.
 //In index.html, The href="#home" "is the link" that corresponds to the id="home"
