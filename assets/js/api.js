@@ -7,8 +7,13 @@ function processResponse(response) {
   return Promise.reject(`Error: ${response.status}`);
 }
 
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: "01a0a2a3-7c88-71aa-b63e-3be5c9141e94",
+};
+
 function getDecks() {
-  return fetch(`${baseUrl}/decks`).then(processResponse);
+  return fetch(`${baseUrl}/decks`, { headers }).then(processResponse);
 }
 
 export { getDecks };
