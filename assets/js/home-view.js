@@ -71,12 +71,6 @@ function renderHomeView(item) {
   //innerHTML assigned to an empty string, clears the gallery list before adding new cards.
   cardListHome.innerHTML = "";
 
-  //Loop for each deck rendered from the decks object.
-  decks.forEach((item) => {
-    const deckEl = createDeckEl(item);
-    cardListHome.prepend(deckEl);
-  });
-
   //Add the New Card Button at the end-bottom of the list of decks
   cardListHome.append(newDeckButton);
 }
