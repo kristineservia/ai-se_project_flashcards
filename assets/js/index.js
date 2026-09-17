@@ -1,4 +1,4 @@
-import { decks, getDeckByID } from "./decks.js";
+import { decks, getDeckByID, fetchedDecks } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
