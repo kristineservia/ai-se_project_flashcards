@@ -157,10 +157,14 @@ function router() {
   }
 }
 
+//Fetch from API and render decks on DOMContentLoaded event listener
 window.addEventListener("DOMContentLoaded", () => {
   getDecks()
     .then((decks) => {
-      decks.forEach(createDeckEl);
+      decks.forEach((deck) => {
+        const deckEl = createDeckEl(deck);
+        cardListHome.prepend(deckEl);
+      });
     })
     .catch(() => {
       showError("Can't fetch the decks!");
