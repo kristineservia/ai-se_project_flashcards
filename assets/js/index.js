@@ -3,6 +3,7 @@ import { hexToString } from "./colors.js";
 import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
 import { disableSubmitBtn } from "./new-deck-view.js";
+import { showError } from "./new-deck-view.js";
 import { renderCarouselView } from "./carousel.js";
 import { getDecks } from "./api.js";
 
@@ -156,7 +157,19 @@ function router() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", router);
+window.addEventListener("DOMContentLoaded", () => {
+  getDecks()
+    .then((decks) => {
+      decks.forEach(createDeckEl);
+    })
+    .catch(() => {
+      showError("Can't fetch the decks!");
+    })
+    .finally(() => {
+      router();
+    });
+});
+
 window.addEventListener("hashchange", router);
 
 //TYJ!
