@@ -19,6 +19,7 @@ const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 const pageElement = document.querySelector(".page");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
+const cardListHome = document.querySelector("#home .gallery__list");
 
 let currentDeck = null;
 
