@@ -36,7 +36,7 @@ newDeckForm.addEventListener("submit", (event) => {
 
 //PRACTICE BUTTON -Connection from Deck-view to Carousel-view via Practice button
 practiceButton.addEventListener("click", () => {
-  window.location.hash = `#carousel/${currentDeck.id}`;
+  window.location.hash = `#carousel/${currentDeck._id}`;
 });
 
 //ENABLE SECTION VISIBILITY
