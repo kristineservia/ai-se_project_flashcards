@@ -1,6 +1,6 @@
 import { decks, getDeckByID, fetchedDecks } from "./decks.js";
 import { hexToString } from "./colors.js";
-import { renderHomeView } from "./home-view.js";
+import { renderHomeView, createDeckEl } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
 import { disableSubmitBtn } from "./new-deck-view.js";
 import { showError } from "./new-deck-view.js";
