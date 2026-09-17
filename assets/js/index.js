@@ -161,6 +161,7 @@ function router() {
 window.addEventListener("DOMContentLoaded", () => {
   getDecks()
     .then((decks) => {
+      fetchedDecks.push(...decks);
       decks.forEach((deck) => {
         const deckEl = createDeckEl(deck);
         cardListHome.prepend(deckEl);
