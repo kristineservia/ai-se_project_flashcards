@@ -75,6 +75,6 @@ function renderHomeView(item) {
   cardListHome.append(newDeckButton);
 }
 
-export { renderHomeView };
+export { renderHomeView, createDeckEl };
 
 // TYJ!
