@@ -51,7 +51,7 @@ function createDeckEl(item) {
   //cardData.href = '#carousel/${item.id}' "when click occurs, listener dynamically sets href to target #carousel/git-basics, for example" -Dot
   //cardData.href will be reassigned to target the #deck-view directly, not the #carousel
   cardData.addEventListener("click", () => {
-    cardData.href = `#deck-view/${item.id}`;
+    cardData.href = `#deck-view/${item._id}`;
   });
 
   return cardEl;
