@@ -68,9 +68,6 @@ function renderHomeView(item) {
   //Container area where DOM Decks are rendered
   const cardListHome = document.querySelector("#home .gallery__list");
 
-  //innerHTML assigned to an empty string, clears the gallery list before adding new cards.
-  cardListHome.innerHTML = "";
-
   //Add the New Card Button at the end-bottom of the list of decks
   cardListHome.append(newDeckButton);
 }
