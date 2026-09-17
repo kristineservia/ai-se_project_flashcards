@@ -133,6 +133,6 @@ function submitForm(event) {
 
 formElement.addEventListener("submit", submitForm);
 
-export { disableSubmitBtn };
+export { disableSubmitBtn, showError };
 
 //TYJ!
