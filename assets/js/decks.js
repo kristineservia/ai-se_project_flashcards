@@ -759,6 +759,8 @@ const decks = [
   },
 ];
 
+const fetchedDecks = [];
+
 /**
  * Retrieves a deck object by its ID from the decks array.
  *
@@ -769,4 +771,4 @@ function getDeckByID(deckId) {
   return decks.find((deck) => deck.id === deckId);
 }
 
-export { decks, getDeckByID };
+export { decks, getDeckByID, fetchedDecks };
