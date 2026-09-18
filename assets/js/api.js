@@ -23,4 +23,4 @@ function deleteDeck(deckId) {
   }).then(processResponse);
 }
 
-export { getDecks };
+export { getDecks, deleteDeck };
