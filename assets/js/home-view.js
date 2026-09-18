@@ -1,4 +1,4 @@
-import { decks, getDeckByID } from "./decks.js";
+import { decks, fetchedDecks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderConfirmationModal } from "./confirmation-modal.js";
 import { deleteDeck } from "./api.js";
@@ -27,15 +27,17 @@ function createDeckEl(item) {
 
   deleteButton.addEventListener("click", () => {
     renderConfirmationModal("Delete this deck?", () => {
-      const deckIndex = decks.findIndex(
+      deleteDeck(item._id).then(() => {
+        cardEl.remove();
+      });
+
+      const deckIndex = fetchedDecks.findIndex(
         (currentDeck) => currentDeck.id === item.id,
       );
 
       if (deckIndex > -1) {
         decks.splice(deckIndex, 1);
       }
-
-      cardEl.remove();
     });
   });
 
