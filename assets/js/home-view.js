@@ -1,6 +1,7 @@
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderConfirmationModal } from "./confirmation-modal.js";
+import { deleteDeck } from "./api.js";
 
 //CREATE THE DECK
 function createDeckEl(item) {
