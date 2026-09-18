@@ -2,6 +2,7 @@ import { decks, fetchedDecks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderConfirmationModal } from "./confirmation-modal.js";
 import { deleteDeck } from "./api.js";
+import { showError } from "./new-deck-view.js";
 
 //CREATE THE DECK
 function createDeckEl(item) {
@@ -27,17 +28,19 @@ function createDeckEl(item) {
 
   deleteButton.addEventListener("click", () => {
     renderConfirmationModal("Delete this deck?", () => {
-      deleteDeck(item._id).then(() => {
-        cardEl.remove();
-      });
-
-      const deckIndex = fetchedDecks.findIndex(
-        (currentDeck) => currentDeck.id === item.id,
-      );
-
-      if (deckIndex > -1) {
-        decks.splice(deckIndex, 1);
-      }
+      deleteDeck(item._id)
+        .then(() => {
+          const deckIndex = fetchedDecks.findIndex(
+            (currentDeck) => currentDeck._id === item._id,
+          );
+          if (deckIndex > -1) {
+            fetchedDecks.splice(deckIndex, 1);
+          }
+          cardEl.remove();
+        })
+        .catch(() => {
+          showError("Can't delete the deck!");
+        });
     });
   });
 
