@@ -1,4 +1,4 @@
-import { fetchedDecks } from "./decks";
+import { fetchedDecks } from "./decks.js";
 
 const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
 
