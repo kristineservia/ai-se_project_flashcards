@@ -110,10 +110,6 @@ function submitForm(event) {
     return;
   }
 
-  //STEP 3c
-  //OLD-INTRO: Build a unique ID using the slugify() URL-friendly deck name and Date.now()
-  //OLD-CODE: const id = `${slugify(jsonData.name)}-${Date.now()}`;
-
   //STEP 4a
   //Create a new deck object with the data required by the API
   const deck = {
