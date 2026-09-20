@@ -1,4 +1,4 @@
-import { decks } from "./decks.js";
+import { decks, fetchedDecks } from "./decks.js";
 import { addDeck } from "./api.js";
 
 const formElement = document.querySelector(".new-deck-view__form");
@@ -115,21 +115,25 @@ function submitForm(event) {
   //OLD-CODE: const id = `${slugify(jsonData.name)}-${Date.now()}`;
 
   //STEP 4a
-  //Create new 'deck' object
+  //Create a new deck object with the data required by the API
   const deck = {
-    id: id,
     color: color,
     name: jsonData.name,
     cards: jsonData.cards,
   };
 
   //STEP 4b
-  //.push() the new deck object onto the imported main decks array
-  decks.push(deck);
+  //Send the new deck to the API
+  addDeck(deck)
+    .then((newDeck) => {
+      //Add the deck returned by the API to the fetched decks array
+      fetchedDecks.push(newDeck);
 
-  //STEP 5
-  //Navigate to the new deck by setting window.location.hash to "deck/" + id
-  window.location.hash = "deck-view/" + id;
+      //STEP 5
+      //Navigate to the new deck using the _id created by the database
+      window.location.hash = "deck-view/" + newDeck._id;
+    })
+    .catch(showError);
 }
 
 formElement.addEventListener("submit", submitForm);
