@@ -1,3 +1,5 @@
+import { fetchedDecks } from "./decks";
+
 const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
 
 function processResponse(response) {
@@ -14,6 +16,18 @@ const headers = {
 
 function getDecks() {
   return fetch(`${baseUrl}/decks`, { headers }).then(processResponse);
+}
+
+function addDeck({ name, color, cards }) {
+  return fetch(`${baseUrl}/decks`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      name,
+      color,
+      cards,
+    }),
+  }).then(processResponse);
 }
 
 function deleteDeck(deckId) {
