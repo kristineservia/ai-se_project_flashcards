@@ -1,6 +1,6 @@
 import { decks, getDeckByID, fetchedDecks } from "./decks.js";
 import { hexToString } from "./colors.js";
-import { renderHomeView, createDeckEl } from "./home-view.js";
+import { renderHomeView } from "./home-view.js";
 import { renderDeckView } from "./deck-view.js";
 import { disableSubmitBtn } from "./new-deck-view.js";
 import { showError } from "./new-deck-view.js";
@@ -19,7 +19,6 @@ const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 const pageElement = document.querySelector(".page");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
-const cardListHome = document.querySelector("#home .gallery__list");
 
 let currentDeck = null;
 
@@ -158,15 +157,11 @@ function router() {
   }
 }
 
-//Fetch from API and render decks on DOMContentLoaded event listener
+//Fetch decks from API and store them in fetchedDecks
 window.addEventListener("DOMContentLoaded", () => {
   getDecks()
     .then((decks) => {
       fetchedDecks.push(...decks);
-      decks.forEach((deck) => {
-        const deckEl = createDeckEl(deck);
-        cardListHome.prepend(deckEl);
-      });
     })
     .catch(() => {
       showError("Can't fetch the decks!");
