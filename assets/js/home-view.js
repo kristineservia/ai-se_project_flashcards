@@ -64,7 +64,7 @@ function createDeckEl(item) {
 }
 
 //RENDER THE DECKS IN HOME VIEW PAGE
-function renderHomeView(item) {
+function renderHomeView() {
   //Target home view page
   const homeViewSection = document.querySelector("#home");
 
@@ -74,7 +74,16 @@ function renderHomeView(item) {
   //Container area where DOM Decks are rendered
   const cardListHome = document.querySelector("#home .gallery__list");
 
-  //Add the New Card Button at the end-bottom of the list of decks
+  //Clear previously rendered decks
+  cardListHome.innerHTML = "";
+
+  //Render the current decks stored in fetchedDecks
+  fetchedDecks.forEach((newDeck) => {
+    const deckEl = createDeckEl(newDeck);
+    cardListHome.prepend(deckEl);
+  });
+
+  //Add the New Deck button at the end of the list
   cardListHome.append(newDeckButton);
 }
 
