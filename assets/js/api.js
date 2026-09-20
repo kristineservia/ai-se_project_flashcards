@@ -37,4 +37,4 @@ function deleteDeck(deckId) {
   }).then(processResponse);
 }
 
-export { getDecks, deleteDeck };
+export { getDecks, addDeck, deleteDeck };
