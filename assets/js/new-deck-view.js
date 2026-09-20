@@ -1,4 +1,5 @@
 import { decks } from "./decks.js";
+import { addDeck } from "./api.js";
 
 const formElement = document.querySelector(".new-deck-view__form");
 const textArea = formElement.querySelector(".new-deck-view__form-input");
