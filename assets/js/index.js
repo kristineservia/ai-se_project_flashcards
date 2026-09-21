@@ -152,6 +152,10 @@ function router() {
   } else if (hash === "new-deck-view") {
     seeNewDeckView();
     disableSubmitBtn();
+
+    //ABOUT VIEW
+  } else if (hash === "about") {
+    seeAboutView();
   }
 
   //PAGE-NOT-FOUND 404
