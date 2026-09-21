@@ -11,4 +11,4 @@ function getDeckByID(deckId) {
   return fetchedDecks.find((deck) => deck._id === deckId);
 }
 
-export { decks, getDeckByID, fetchedDecks };
+export { getDeckByID, fetchedDecks };
