@@ -1,4 +1,4 @@
-import { decks, fetchedDecks } from "./decks.js";
+import { fetchedDecks } from "./decks.js";
 import { addDeck } from "./api.js";
 
 const formElement = document.querySelector(".new-deck-view__form");
