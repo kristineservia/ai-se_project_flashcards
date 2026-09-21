@@ -17,15 +17,6 @@ dismissButton.addEventListener("click", () => {
   errorModal.classList.remove("modal_visible");
 });
 
-//URL-friendly string modification
-function slugify(str) {
-  return str
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 //Hex-color name modification
 function normalizeColor(color) {
   if (!color) return "#64d583";
