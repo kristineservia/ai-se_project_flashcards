@@ -84,7 +84,7 @@ function seeCarouselView(deck) {
 }
 
 //SHOW ABOUT SECTION
-function seeAboutSection() {
+function seeAboutView() {
   showView(aboutSection, "block");
 }
 
