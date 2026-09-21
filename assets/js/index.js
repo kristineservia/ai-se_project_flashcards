@@ -45,6 +45,7 @@ function showView(currentSection, display) {
   deckViewSection.style.display = "none";
   newDeckViewSection.style.display = "none";
   carouselSection.style.display = "none";
+  aboutSection.style.display = "none";
   notFoundSection.style.display = "none";
 
   currentSection.style.display = display;
@@ -80,6 +81,11 @@ function seeCarouselView(deck) {
   showView(carouselSection, "flex");
 
   renderCarouselView(deck);
+}
+
+//SHOW ABOUT SECTION
+function seeAboutSection() {
+  showView(aboutSection, "block");
 }
 
 // SHOW NOT-FOUND SECTION
