@@ -1,3 +1,4 @@
+//Array container that will hold the decks provided by the API server.
 const fetchedDecks = [];
 
 /**
