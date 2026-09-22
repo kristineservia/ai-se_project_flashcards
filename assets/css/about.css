@@ -4,4 +4,9 @@
   background-color: #ffffff;
   border: 3px solid white;
   border-radius: 8px;
+  padding-bottom: 20px;
+}
+
+.about__code {
+  margin: 0;
 }
