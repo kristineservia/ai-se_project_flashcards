@@ -214,7 +214,29 @@
       <!-- ABOUT BLOCK -->
       <section id="about" class="about">
         <h2 class="about__title">About</h2>
-        <pre class="about__code"><code>{
+        <p class="about__intro">
+          Flash Cards is a study app that allows you to create custom decks of
+          flash cards.<br />
+          <br />
+          When you click on the 'Practice' button you can cycle through the deck
+          of cards to practice or memorize the content.
+        </p>
+        <p class="about__instructions">
+          To create a new deck, enter the content of your cards in the following
+          JSON format. <br />
+          <br />
+          Keep the property names, curly braces, brackets, commas, and other
+          JSON formatting unchanged. <br />
+          <br />
+          Replace the example values with your own content. To add another card,
+          copy and paste a complete question-and-answer object inside the cards
+          array. Add a comma after the closing curly brace of each card object
+          before adding the next one. Do not add a comma after the last card
+          object.
+        </p>
+        <div class="about__code-container">
+          <pre class="about__code"><code>
+        {
           "name": "Deck Name",
           "cards": [
               {
@@ -223,11 +245,11 @@
               },
               {
                 "question": "Write your second question here",
-                "answer": "Write the answer to your second question here"
-              },
-              ...
+                "answer": "Write the answer for the second question here"
+              }
           ]  
         }</code></pre>
+        </div>
       </section>
 
       <!-- NOT FOUND BLOCK   -->
