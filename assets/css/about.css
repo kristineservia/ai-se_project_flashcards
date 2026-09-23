@@ -24,3 +24,10 @@
   letter-spacing: 0;
   color: #1a1a1a;
 }
+
+.about__intro,
+.about__instructions {
+  font-size: 18px;
+  line-height: 135%;
+  color: #1a1a1a;
+}
