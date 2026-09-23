@@ -25,6 +25,10 @@
   color: #1a1a1a;
 }
 
+.about__subheading {
+  font-size: 20px;
+}
+
 .about__intro,
 .about__instructions {
   font-size: 18px;
