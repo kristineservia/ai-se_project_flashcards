@@ -1,3 +1,8 @@
+.about {
+  width: 670px;
+  margin: 0 auto;
+}
+
 .about__code-container {
   width: 100%;
   box-sizing: border-box;
