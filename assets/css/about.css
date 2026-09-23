@@ -16,3 +16,11 @@
 .about__code {
   margin: 0;
 }
+
+.about__title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #1a1a1a;
+}
