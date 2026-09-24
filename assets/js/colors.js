@@ -11,11 +11,11 @@ const colorMap = {
 /**
  * Function converts a color-name string, like "blue", into its corresponding
  * hexadecimal color string, like "#91a8f9". If the provided color-name string isn't found
- * in the colorMap object, return the colorMap.default hexadecimal color string of "#64d583".
+ * in the colorMap object, returns the colorMap.default hexadecimal color string of "#64d583".
  *
  *
  * @param {string} colorName - The color name provided, such as "blue".
- * @returns {string} - The hexadecimal color string, corresponding to the color name, such as "#91a8f9".
+ * @returns {string} The hexadecimal color string, corresponding to the color name, such as "#91a8f9".
  */
 function stringToHex(colorName) {
   const color = colorMap[colorName];
@@ -30,7 +30,7 @@ function stringToHex(colorName) {
  * if found in colorMap. If a match isn't found, null is returned.
  *
  * @param {string} hexValue - The hexadecimal color string value to convert into a color-name.
- * @returns {string|null} - The corresponding color-name string, or null if no match is found.
+ * @returns {string|null} The corresponding color-name string, or null if no match is found.
  */
 function hexToString(hexValue) {
   const colorString = Object.keys(colorMap).find((key) => {
