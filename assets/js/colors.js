@@ -14,8 +14,8 @@ const colorMap = {
  * in the colorMap object, return the colorMap.default hexadecimal color string of "#64d583".
  *
  *
- * @param {string} colorName
- * @returns {string} A hexadecimal color string.
+ * @param {string} colorName - The color name provided, such as "blue".
+ * @returns {string} - The hexadecimal color string, corresponding to the color name, such as "#91a8f9".
  */
 function stringToHex(colorName) {
   const color = colorMap[colorName];
