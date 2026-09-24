@@ -29,8 +29,8 @@ function stringToHex(colorName) {
  * Accepts a hexadecimal string and returns the corresponding color-name key,
  * if found in colorMap. If a match isn't found, null is returned.
  *
- * @param {string} hexValue
- * @returns {string|null} The corresponding color-name string, or null if no match is found.
+ * @param {string} hexValue - The hexadecimal color string value to convert into a color-name.
+ * @returns {string|null} - The corresponding color-name string, or null if no match is found.
  */
 function hexToString(hexValue) {
   const colorString = Object.keys(colorMap).find((key) => {
