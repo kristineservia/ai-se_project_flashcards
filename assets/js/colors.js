@@ -9,12 +9,13 @@ const colorMap = {
 };
 
 /**
- * Returns a hexadecimal string corresponding to the provided color name
- * string. If it isn't found in the colorMap object, colorMap.default is
- * returned.
+ * Function converts a color-name string, like "blue", into its corresponding
+ * hexadecimal color string, like "#91a8f9". If the provided color-name string isn't found
+ * in the colorMap object, return the colorMap.default hexadecimal color string of "#64d583".
+ *
  *
  * @param {string} colorName
- * @returns a hexadecimal string
+ * @returns {string} A hexadecimal color string.
  */
 function stringToHex(colorName) {
   const color = colorMap[colorName];
