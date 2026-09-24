@@ -41,10 +41,12 @@ function hexToString(hexValue) {
 }
 
 /**
- * Accepts an HTML element and removes all BEM "_color_" modifiers from its
- * class list.
+ * Function that removes any color-related BEM CSS classes, such as "card_color_blue",
+ * from an HTML element while leaving its other classes unchanged.
  *
- * @param {HTMLElement} element
+ * The function checks each class on the element and removes any class that contains "_color_".
+ *
+ * @param {HTMLElement} element - The HTML element whose color classes will be removed.
  */
 function removeColorClasses(element) {
   [...element.classList].forEach((cls) => {
