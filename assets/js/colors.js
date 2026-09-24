@@ -24,11 +24,13 @@ function stringToHex(colorName) {
 }
 
 /**
- * Accepts a hexadecimal string and returns the corresponding color name key,
+ * Does the reverse of stringToHex(). This function converts a hexadecimal color string,
+ * like "#91a8f9", into its corresponding color-name string, like "blue".
+ * Accepts a hexadecimal string and returns the corresponding color-name key,
  * if found in colorMap. If a match isn't found, null is returned.
  *
  * @param {string} hexValue
- * @returns a color name string
+ * @returns {string|null} The corresponding color-name string, or null if no match is found.
  */
 function hexToString(hexValue) {
   const colorString = Object.keys(colorMap).find((key) => {
