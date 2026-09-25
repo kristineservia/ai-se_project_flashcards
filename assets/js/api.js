@@ -22,6 +22,13 @@ const headers = {
   Authorization: "01a0a2a3-7c88-71aa-b63e-3be5c9141e94",
 };
 
+/**
+ * The getDecks() function requests all the saved decks from the Flash Cards API.
+ * The function sends a GET request to the decks API endpoint and processes the API response.
+ *
+ * @returns {Promise} A Promise that resolves with the saved deck data or rejects if the request
+ * is unsuccessful.
+ */
 function getDecks() {
   return fetch(`${baseUrl}/decks`, { headers }).then(processResponse);
 }
