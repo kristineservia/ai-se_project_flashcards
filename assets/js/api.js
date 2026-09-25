@@ -2,6 +2,14 @@ import { fetchedDecks } from "./decks.js";
 
 const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
 
+/**
+ * The processResponse() function checks if an API response was successful or not.
+ * If it was successful, it converts the response body from JSON text into JavaScript data.
+ * If it was unsuccessful, it returns a rejected Promise error containing the HTTP status code.
+ *
+ * @param {string} response - The input JSON received in the app from the API.
+ * @returns {Promise} A Promise that resolves with the parsed JSON data or rejects with an error message.
+ */
 function processResponse(response) {
   if (response.ok) {
     return response.json();
