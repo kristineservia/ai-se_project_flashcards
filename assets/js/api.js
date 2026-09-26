@@ -33,6 +33,18 @@ function getDecks() {
   return fetch(`${baseUrl}/decks`, { headers }).then(processResponse);
 }
 
+/**
+ * The addDeck() function sends a new deck's name, color, and cards to the Flash Cards API
+ * so the new deck can be saved.
+ *
+ * @param {Object} deck - The new deck data.
+ * @param {string} deck.name - The name of the new deck.
+ * @param {string} deck.color - The hexadecimal color of the new deck.
+ * @param {Array} deck.cards - The cards contained in the new deck.
+ *
+ * @returns {Promise} A Promise that resolves with the saved deck data or rejects if the request
+ * is unsuccessful.
+ */
 function addDeck({ name, color, cards }) {
   return fetch(`${baseUrl}/decks`, {
     method: "POST",
