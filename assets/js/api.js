@@ -8,6 +8,7 @@ const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
  * If it was unsuccessful, it returns a rejected Promise error containing the HTTP status code.
  *
  * @param {string} response - The input JSON received in the app from the API.
+ *
  * @returns {Promise} A Promise that resolves with the parsed JSON data or rejects with an error message.
  */
 function processResponse(response) {
@@ -62,6 +63,7 @@ function addDeck({ name, color, cards }) {
  * ID was provided.
  *
  * @param {string} deckId - The unique ID of the deck to delete.
+ *
  * @returns {Promise} - A Promise that resolves when the deck is successfully deleted or rejects if
  * the request is unsuccessful.
  *
