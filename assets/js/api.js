@@ -57,6 +57,15 @@ function addDeck({ name, color, cards }) {
   }).then(processResponse);
 }
 
+/**
+ * The deleteDeck() function sends a DELETE request to the Flash Cards API to delete the deck whose
+ * ID was provided.
+ *
+ * @param {string} deckId - The unique ID of the deck to delete.
+ * @returns {Promise} - A Promise that resolves when the deck is successfully deleted or rejects if
+ * the request is unsuccessful.
+ *
+ */
 function deleteDeck(deckId) {
   return fetch(`${baseUrl}/decks/${deckId}`, {
     method: "DELETE",
