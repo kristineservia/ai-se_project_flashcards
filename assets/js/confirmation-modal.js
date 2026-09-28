@@ -12,6 +12,17 @@ const cancelButton = document.querySelector("#modal__cancel-button");
 let confirmAction;
 
 // RENDER CONFIRMATION MODAL DIALOG BOX
+
+/**
+ * The renderConfirmationModal() function displays a confirmation dialog box to the user when they click the
+ * delete button on a deck. It displays the provided confirmation message and stores the action that will
+ * execute if the user confirms the deletion.
+ *
+ * @param {string} text - The confirmation message displayed to the user.
+ * @param {Function} action - The function to execute if the user confirms the deletion.
+ *
+ * @returns {void}  The function does not return a value.
+ */
 function renderConfirmationModal(text, action) {
   //Insert a message for the particular item targeted to be deleted
   message.textContent = text;
