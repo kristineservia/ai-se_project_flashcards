@@ -12,7 +12,7 @@ function createDeckEl(deck) {
   //Clone the deck element from the HTML template.
   const deckEl = deckTemplate.content.querySelector(".card").cloneNode(true);
 
-  //Large Deck Title displaying at the top of home page
+  //Display the 'Deck Title' on the deck.
   deckEl.querySelector(".card__title").textContent = deck.name;
 
   //Display the number of cards contained in the deck.
@@ -43,7 +43,7 @@ function createDeckEl(deck) {
     });
   });
 
-  //Apply the decks color class
+  //Apply the deck's color class
   const color = hexToString(deck.color);
   deckEl.classList.add(`card_color_${color}`);
 
