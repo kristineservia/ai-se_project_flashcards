@@ -5,38 +5,38 @@ import { deleteDeck } from "./api.js";
 import { showError } from "./new-deck-view.js";
 
 //CREATE THE DECK
-function createDeckEl(item) {
+function createDeckEl(deck) {
   //Connecting to template of the list of cards and assigning it to cardTemplate
-  const cardTemplate = document.querySelector("#deck-template");
+  const deckTemplate = document.querySelector("#deck-template");
 
   //Creating a clone of the card to form a deck
-  const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
+  const deckEl = deckTemplate.content.querySelector(".card").cloneNode(true);
 
   //Large Deck Title displaying at the top of home page
-  cardEl.querySelector(".card__title").textContent = item.name;
+  deckEl.querySelector(".card__title").textContent = deck.name;
 
   //Assigning each card in a deck the text "10 cards" num of cards == length of array
-  cardEl.querySelector(".card__count").textContent =
-    `${item.cards.length} cards`;
+  deckEl.querySelector(".card__count").textContent =
+    `${deck.cards.length} cards`;
 
   //DELETE BUTTON FUNCTION  (Help source: ChatGPT)
   //Use .findIndex() and splice() to find and delete an item, after a dialog box prompt.
   //findIndex() returns the index of the 1st element found in an array, that passes the testing condition given to it.
   //It uses a callback function, ex) const indeX = deck.cards.findIndex((item) => item.id === card.id)
   //splice() removes something from an array. ex) deck.cards.splice(1, 1) splice(start at index 1, remove index 1)
-  const deleteButton = cardEl.querySelector(".card__btn_type_delete");
+  const deleteButton = deckEl.querySelector(".card__btn_type_delete");
 
   deleteButton.addEventListener("click", () => {
     renderConfirmationModal("Delete this deck?", () => {
-      deleteDeck(item._id)
+      deleteDeck(deck._id)
         .then(() => {
           const deckIndex = fetchedDecks.findIndex(
-            (currentDeck) => currentDeck._id === item._id,
+            (currentDeck) => currentDeck._id === deck._id,
           );
           if (deckIndex > -1) {
             fetchedDecks.splice(deckIndex, 1);
           }
-          cardEl.remove();
+          deckEl.remove();
         })
         .catch(() => {
           showError("Can't delete the deck!");
@@ -45,11 +45,11 @@ function createDeckEl(item) {
   });
 
   //Decks color assignment
-  const color = hexToString(item.color);
-  cardEl.classList.add(`card_color_${color}`);
+  const color = hexToString(deck.color);
+  deckEl.classList.add(`card_color_${color}`);
 
   //Setting the URL to index.html#carousel/item.id (from decks)
-  const cardData = cardEl.querySelector(".card__link");
+  const cardData = deckEl.querySelector(".card__link");
 
   //cardData event listener explanation notes:
   //cardData is the variable that holds the anchor <a> element with the class="card__link" -Dot
@@ -57,10 +57,10 @@ function createDeckEl(item) {
   //cardData.href = '#carousel/${item.id}' "when click occurs, listener dynamically sets href to target #carousel/git-basics, for example" -Dot
   //cardData.href will be reassigned to target the #deck-view directly, not the #carousel
   cardData.addEventListener("click", () => {
-    cardData.href = `#deck-view/${item._id}`;
+    cardData.href = `#deck-view/${deck._id}`;
   });
 
-  return cardEl;
+  return deckEl;
 }
 
 //RENDER THE DECKS IN HOME VIEW PAGE
