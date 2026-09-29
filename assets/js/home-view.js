@@ -5,6 +5,21 @@ import { deleteDeck } from "./api.js";
 import { showError } from "./new-deck-view.js";
 
 //CREATE THE DECK IN HOME PAGE
+
+/**
+ * The createDeckEl() function takes the deck object and creates a DOM element
+ * representing that deck by cloning the HTML deck template.
+ * It applies the deck's data, adds the color class needed for CSS to display
+ * the correct color, adds the deck's functionality, and returns the completed deck element.
+ *
+ * @param {Object} deck - The deck object provided by the API.
+ * @param {string} deck.name - The name of the deck.
+ * @param {string} deck.color - The hexadecimal color string assigned to the deck.
+ * @param {string} deck._id - The unique ID assigned to the deck by the API.
+ * @param {Array} deck.cards - The array of cards contained in the deck.
+ *
+ * @returns {HTMLElement} The DOM element representing the deck.
+ */
 function createDeckEl(deck) {
   //Select the deck template.
   const deckTemplate = document.querySelector("#deck-template");
@@ -55,6 +70,7 @@ function createDeckEl(deck) {
     deckLink.href = `#deck-view/${deck._id}`;
   });
 
+  //HTML/DOM Element -Cloned <li> deck.
   return deckEl;
 }
 
