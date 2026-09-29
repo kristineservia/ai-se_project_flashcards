@@ -75,6 +75,21 @@ function createDeckEl(deck) {
 }
 
 //RENDER THE DECKS IN HOME VIEW PAGE
+
+/**
+ * The renderHomeView() function renders the current decks stored in fetchedDecks
+ * on the app's Home page. It clears any previously rendered decks, loops through
+ * fetchedDecks, passes each deck object to createDeckEl() to create its DOM element,
+ * and inserts each deck element into the Home page's deck list.
+ * It also adds the New Deck button at the end of the listed decks.
+ *
+ * @returns {void} The function does not return a value.
+ *
+ * Note: createDeckEl() creates and configures one deck DOM element. renderHomeView() creates one of
+ * those DOM elements for every deck in fetchedDecks and inserts them into the Home page. CSS determines
+ * how those inserted deck elements are visually arranged.
+ *
+ */
 function renderHomeView() {
   //Target home view page
   const homeViewSection = document.querySelector("#home");
