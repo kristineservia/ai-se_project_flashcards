@@ -76,8 +76,21 @@ function createCardEl(card, deck) {
 //RENDER THE CARDS IN THE DECK VIEW
 
 /**
+ * The renderDeckView() function renders the card DOM elements for the selected deck in the Deck View. It displays the
+ * deck's name as the gallery title, clears previously rendered cards to prevent duplicates, creates and inserts a DOM
+ * element for each card, applies the deck's color class to each card, and adds the New Card button at the end of the card list.
  *
- * @param {*} deck
+ * The renderDeckView() function targets the deck view and renders the card DOM elements to be displayed in the deck view,
+ * it applies the gallery title of the deck being viewed, applies a new card button at the end of the cards listed,
+ * clears any previous rendering of cards to eliminate duplicate cards, and applies the color class corresponding to the deck.
+ *
+ * @param {Object} deck - The deck of cards to render.
+ * @param {string} deck.name - The name of the deck displayed as the gallery title.
+ * @param {string} deck.color - The hexadecimal color string assigned to the deck.
+ * @param {Array} deck.cards - The array of cards contained in the deck.
+ *
+ * @returns {void} The function does not return a value.
+ *
  */
 function renderDeckView(deck) {
   //Target deck view page
