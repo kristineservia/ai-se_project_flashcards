@@ -2,13 +2,20 @@ import { hexToString } from "./colors.js";
 import { renderConfirmationModal } from "./confirmation-modal.js";
 
 //CREATE THE CARD
+
+/**
+ *
+ * @param {*} card
+ * @param {*} deck
+ * @returns
+ */
 function createCardEl(card, deck) {
   let showingQuestion = true;
 
   //Connecting the Card Template to the DOM and assigning it to cardTemplate.
   const cardTemplate = document.querySelector("#card-template");
 
-  //Creating a clone of the card to form a deck
+  //Clone the card element from the HTML template.
   const cardEl = cardTemplate.content.querySelector(".card").cloneNode(true);
 
   //Card Question displayed on card in deck-view
@@ -31,11 +38,13 @@ function createCardEl(card, deck) {
     }
   });
 
-  //DELETE BUTTON FUNCTION  (Help source: ChatGPT)
-  //Use .findIndex() and splice() to find and delete an item, after a dialog box prompt.
-  //findIndex() returns the index of the 1st element found in an array, that passes the testing condition given to it.
-  //It uses a callback function, ex) const indeX = deck.cards.findIndex((item) => item.id === card.id)
-  //splice() removes something from an array. ex) deck.cards.splice(1, 1) splice(start at index 1, remove index 1)
+  //DELETE BUTTON EVENT  (Help source: ChatGPT)
+  //findIndex() returns the index of the first array element for which the callback condition returns true.
+  //If none is found, it returns -1.
+  //splice() removes elements from the array. ex) array.splice(1, 1) splice(which index to start at, how many elements to remove)
+
+  //Note: findIndex() Finds the index of the first card whose ID matches this card's ID.
+  //If an index was found ( > -1), start at that index and remove 1 element.
   const deleteButton = cardEl.querySelector(".card__btn_type_delete");
 
   deleteButton.addEventListener("click", () => {
@@ -55,7 +64,12 @@ function createCardEl(card, deck) {
   return cardEl;
 }
 
-//RENDER THE DECK VIEW (10 CARDS DISPLAYED)
+//RENDER THE CARDS IN THE DECK VIEW
+
+/**
+ *
+ * @param {*} deck
+ */
 function renderDeckView(deck) {
   //Target deck view page
   const deckViewSection = document.querySelector("#deck-view");
