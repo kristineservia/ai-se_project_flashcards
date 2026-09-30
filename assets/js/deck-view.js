@@ -83,32 +83,33 @@ function renderDeckView(deck) {
   //Target deck view page
   const deckViewSection = document.querySelector("#deck-view");
 
-  //Target DOM generated listed cards in the deck view page
+  //Select the container where the card elements will be rendered.
   const cardListDeckView = document.querySelector("#deck-view .gallery__list");
 
-  //Large Gallery Title above the cards in deck-view
+  //Display the deck's name as the Deck View title.
   const galleryTitle = document.querySelector("#deck-view .gallery__title");
   galleryTitle.textContent = deck.name;
 
-  //New Card Button
+  //Select the New Card button.
   const newCardButton = deckViewSection.querySelector(".gallery__new-card-btn");
 
-  //innerHTML assigned to an empty string, attached to cardList, clears the gallery list before adding new cards.
+  //Clear previously rendered cards before rendering the current deck.
   cardListDeckView.innerHTML = "";
 
   //The cards property inside the decks object can be accessed through dot notation.
-  //Loop for each card rendered from the decks object.
+  //Loop through the cards in the deck and create a DOM element for each card.
   deck.cards.forEach((card) => {
     const cardEl = createCardEl(card, deck);
 
-    //Card color assignment by targeting the deck to (card) color
+    //Apply the deck's color class to the card element.
     const color = hexToString(deck.color);
     cardEl.classList.add(`card_color_${color}`); //This color style is in card.css
 
+    //Insert the card element into the Deck View list.
     cardListDeckView.prepend(cardEl);
   });
 
-  //Add the New Card Button at the end-bottom of the list of decks
+  //Add the New Card Button at the end of the card list.
   cardListDeckView.append(newCardButton);
 }
 
