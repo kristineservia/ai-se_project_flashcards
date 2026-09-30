@@ -4,11 +4,20 @@ import { renderConfirmationModal } from "./confirmation-modal.js";
 //CREATE THE CARD
 
 /**
+ * The createCardEl() function uses the HTML card template to create one card DOM element, adds the question and answer data
+ * to the card DOM element, applies the card flip functionality, and applies the delete card functionality.
  *
- * @param {*} card
- * @param {*} deck
- * @returns
+ * @param {Object} card - The card data used to create the card element.
+ * @param {string} card.id - The unique ID of the card.
+ * @param {string} card.question - The question displayed on the card.
+ * @param {string} card.answer - The answer displayed when the card is flipped.
+ *
+ * @param {Object} deck - The deck object containing the card.
+ * @param {Array} deck.cards - The array of cards contained in the deck.
+ *
+ * @returns {HTMLElement} The DOM element representing the card.
  */
+
 function createCardEl(card, deck) {
   let showingQuestion = true;
 
