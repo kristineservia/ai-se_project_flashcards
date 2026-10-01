@@ -63,12 +63,25 @@ function validateName(name) {
   return name;
 }
 
-//Disable/Enable Submit Button
+//NOTE: REVIEW THIS FUNCTION AFTER SUBMISSION FOR LATER REFACTOR--Disable/Enable Submit Button
+// Function name says "disable", but setting disabled to false actually enables the button.
+/**
+ * The disableSubmitBtn() function enables the New Deck form's submit button by
+ * setting its disabled property to false.
+ *
+ * @returns {void} The function does not return a value.
+ */
 function disableSubmitBtn() {
   submitButton.disabled = false;
 }
 
-//Display Error Message Function
+/**
+ * The showError() function receives a string containing an error message and displays the message
+ * in the error modal when the function is called.
+ *
+ * @param {string} message - The error message to display in the error modal.
+ * @returns {void} The function does not return a value.
+ */
 function showError(message) {
   errorMessage.textContent = message;
   errorModal.classList.add("modal_visible");
