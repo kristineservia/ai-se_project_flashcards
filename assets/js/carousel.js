@@ -38,8 +38,12 @@ function renderCarouselView(deck) {
   const carouselCardText = carouselEl.querySelector(".carousel__card-text");
 
   /**
+   * The disableButton() function disables a carousel button by adding the disabled CSS class and
+   * setting its disabled state. It is used to disable the left or right navigation arrow when the
+   * user reaches the beginning or end of the deck.
    *
-   * @param {*} buttonEl
+   * @param {HTMLButtonElement} buttonEl - The button HTML element.
+   * @returns {void} The function does not return a value.
    */
   function disableButton(buttonEl) {
     buttonEl.classList.add("carousel__btn_disabled");
