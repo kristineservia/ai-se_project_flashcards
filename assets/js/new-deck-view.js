@@ -87,8 +87,16 @@ function showError(message) {
   errorModal.classList.add("modal_visible");
 }
 
+/**
+ * The submitForm() function handles the submission of the New Deck form. It prevents the normal browser submission,
+ * collects and validates the form/JSON data inputs, creates a deck object, sends it to the API with the addDeck() function,
+ * stores the returned deck in fetchedDecks, and navigates to the newly created deck.
+ *
+ * @param {SubmitEvent} event - The form submission event.
+ * @returns {void} The function does not return a value.
+ */
 function submitForm(event) {
-  //STEP 1
+  //STEP 1:
   event.preventDefault();
 
   //STEP 2
