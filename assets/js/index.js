@@ -145,10 +145,15 @@ function seeNotFoundView() {
   mainElement.classList.remove("page__main-content");
 }
 
+//ROUTER SECTION
 /**
- * ROUTER SECTION
- * Main router function that handles hash changes.
- * Reads the current hash and renders the appropriate view.
+ * The router() function reads the current hash, and handles hash changes. It determines which route the user is
+ * requesting, and adjusts CSS layouts and classes per section view. For routes with a deck ID it extracts that ID
+ * and retrieves the corresponding deck with the getDeckByID() function, calls the appropriate viewing section,
+ * and falls back to the Not Found View if the hash doesn't match a valid route.
+ *
+ * @returns {void} The function does not return a value.
+ *
  */
 function router() {
   const hash = window.location.hash.slice(1) || "home";
