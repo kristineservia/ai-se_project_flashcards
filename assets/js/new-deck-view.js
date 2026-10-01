@@ -96,19 +96,18 @@ function showError(message) {
  * @returns {void} The function does not return a value.
  */
 function submitForm(event) {
-  //STEP 1:
+  //STEP 1: Prevent the browser's default form submission behavior.
   event.preventDefault();
 
-  //STEP 2
+  //STEP 2: Collect the submitted form data.
   //new FormData() = Creates a FormData object. (event.target) = form that was submitted
   const formData = new FormData(event.target);
 
-  //Turn formData into a regular object
+  //Convert the FormData into a regular JavaScript object.
   const formValues = Object.fromEntries(formData);
 
-  //STEP 3a-1
-  //Parse the textarea's values with JSON.parse()
-  // const jsonData = JSON.parse(textArea.value); OLD METHOD
+  //STEP 3a-1: Parse the textarea's JSON text using the parseJSON() helper function.
+  //Note-Question: Why was this initially created?--> const jsonData = JSON.parse(textArea.value); OLD METHOD
   const jsonData = parseJSON(textArea.value);
 
   //Step 3a-2  (Gate 1: Is text-area entry valid JSON?)
@@ -123,17 +122,16 @@ function submitForm(event) {
     return;
   }
 
-  //Step 3a-4 (Gate 3: Are the cards an array?)
+  //Step 3a-4  (Gate 3: Are the cards an array?)
   if (Array.isArray(jsonData.cards) === false) {
     showError("Cards must be an array");
     return;
   }
 
-  //STEP 3b-1
-  //Adjust hex-color input with normalizeColor()
+  //STEP 3b-1: Normalize the selected hexadecimal color using normalizeColor() function.
   const color = normalizeColor(formValues.color);
 
-  //Step 3b-2  (Gate 4: If JSON contains a color, does it match the one on color picker?)
+  //Step 3b-2  (Gate 4: Does the JSON color match the selected color?)
   if (
     typeof jsonData.color === "string" &&
     jsonData.color.toLowerCase() !== color
@@ -142,23 +140,20 @@ function submitForm(event) {
     return;
   }
 
-  //STEP 4a
-  //Create a new deck object with the data required by the API
+  //STEP 4a: Create a new deck object with the data required by the API
   const deck = {
     color: color,
     name: jsonData.name,
     cards: jsonData.cards,
   };
 
-  //STEP 4b
-  //Send the new deck to the API
+  //STEP 4b: Send the new deck to the API.
   addDeck(deck)
     .then((newDeck) => {
       //Add the deck returned by the API to the fetched decks array
       fetchedDecks.push(newDeck);
 
-      //STEP 5
-      //Navigate to the new deck using the _id created by the database
+      //STEP 5: Navigate to the new deck using the _id returned by the API.
       window.location.hash = "deck-view/" + newDeck._id;
     })
     .catch(showError);
