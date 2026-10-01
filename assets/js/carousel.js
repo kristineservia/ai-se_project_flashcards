@@ -51,8 +51,11 @@ function renderCarouselView(deck) {
   }
 
   /**
+   * The enableButton() function eneables a carousel buttton by removing its disabled CSS class and
+   * disabled attribute. It is applied to the left and right navigation arrows used to cycle the deck.
    *
-   * @param {*} buttonEl
+   * @param {HTMLButtonElement} buttonEl - The HTML navigation button element to enable.
+   * @returns {void} The function does not return a value.
    */
   function enableButton(buttonEl) {
     buttonEl.classList.remove("carousel__btn_disabled");
