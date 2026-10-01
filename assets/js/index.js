@@ -60,6 +60,12 @@ function showView(currentSection, display) {
 }
 
 // SHOW HOME SECTION
+/**
+ * The seeHomeView() function displays the Home view and renders the decks on it.
+ *
+ * @returns {void} The function does not return a value.
+ *
+ */
 function seeHomeView() {
   showView(homeViewSection, "block");
 
@@ -67,6 +73,14 @@ function seeHomeView() {
 }
 
 // SHOW DECK-VIEW SECTION
+/**
+ * The seeDeckView() function displays the Deck View section and passes the selected deck object
+ * to renderDeckView() so its cards can be rendered.
+ *
+ * @param {Object} deck - The selected deck to display.
+ * @returns {void} The function does not return a value.
+ *
+ */
 function seeDeckView(deck) {
   showView(deckViewSection, "block");
 
@@ -74,6 +88,13 @@ function seeDeckView(deck) {
 }
 
 // SHOW NEW-DECK-VIEW SECTION
+/**
+ * The seeNewDeckView() function displays the New Deck View and adjusts the page's CSS classes for that view,
+ * including hiding the mobile gradient.
+ *
+ * @returns {void} The function does not return a value.
+ *
+ */
 function seeNewDeckView() {
   showView(newDeckViewSection, "block");
 
@@ -85,6 +106,14 @@ function seeNewDeckView() {
 }
 
 // SHOW CAROUSEL SECTION
+/**
+ * The seeCarouselView() function displays the Carousel View and passes the selected deck object to
+ * renderCarouselView() so the deck's cards can be used for practice.
+ *
+ * @param {Object} deck - The selected deck to display in the carousel.
+ * @returns {void} The function does not return a value.
+ *
+ */
 function seeCarouselView(deck) {
   showView(carouselSection, "flex");
 
