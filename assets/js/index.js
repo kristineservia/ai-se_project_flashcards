@@ -40,6 +40,14 @@ practiceButton.addEventListener("click", () => {
 });
 
 //ENABLE SECTION VISIBILITY
+/**
+ * The showView() function hides all of the application's view sections, then displays the section
+ * passed into the function using the supplied CSS display value of "flex" or "block".
+ *
+ * @param {HTMLElement} currentSection - The section to display.
+ * @param {string} display - The CSS display value used to make the section visible.
+ * @returns {void} The function does not return a value.
+ */
 function showView(currentSection, display) {
   homeViewSection.style.display = "none";
   deckViewSection.style.display = "none";
