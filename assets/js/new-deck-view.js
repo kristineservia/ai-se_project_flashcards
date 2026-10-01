@@ -33,7 +33,13 @@ function normalizeColor(color) {
   return "#" + hex.toLowerCase();
 }
 
-//LOOK-OUT FUNCTION TO STOP INCORRECT JSON INPUT IN THE FORM'S TEXT-AREA BOX
+/**
+ * The parseJSON() function accepts a JSON-formatted string and attemps to convert it into JavaScript data.
+ * If JSON.parse() fails because the string contains invalid JSON, the catch block returns null.
+ *
+ * @param {string} jsonString - The JSON-formatted text.
+ * @returns {Object|null} The JavaScript object created from valid JSON text, or null if parsing fails.
+ */
 function parseJSON(jsonString) {
   try {
     return JSON.parse(jsonString);
