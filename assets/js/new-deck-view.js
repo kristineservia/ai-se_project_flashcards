@@ -17,7 +17,15 @@ dismissButton.addEventListener("click", () => {
   errorModal.classList.remove("modal_visible");
 });
 
-//Hex-color name modification
+/**
+ * The normalizeColor() function takes a hexadecimal color string and verifies if it has
+ * the correct format. It changes the hexadecimal color string to lowercase, and returns it
+ * with a hash preceding it. A default color is returned if no color is given or string is
+ * invalid.
+ *
+ * @param {string} color - The hexadecimal color string.
+ * @returns {string} The default hexadecimal color string, or the normalized hexadecimal color string selected.
+ */
 function normalizeColor(color) {
   if (!color) return "#64d583";
   const hex = color.startsWith("#") ? color.slice(1) : color;
