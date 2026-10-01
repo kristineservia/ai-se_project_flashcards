@@ -121,11 +121,24 @@ function seeCarouselView(deck) {
 }
 
 //SHOW ABOUT SECTION
+/**
+ * The seeAboutView() function displays the About View by passing aboutSection and "block" to the showView() function.
+ *
+ * @returns {void} The function does not have a return value.
+ *
+ */
 function seeAboutView() {
   showView(aboutSection, "block");
 }
 
 // SHOW NOT-FOUND SECTION
+/**
+ * The seeNotFoundView() function displays the Not Found / 404 view and removes the normal page__main-content class
+ * from the main element.
+ *
+ * @returns {void} The function does not return a value.
+ *
+ */
 function seeNotFoundView() {
   showView(notFoundSection, "flex");
 
