@@ -110,19 +110,19 @@ function submitForm(event) {
   //Note-Question: Why was this initially created?--> const jsonData = JSON.parse(textArea.value); OLD METHOD
   const jsonData = parseJSON(textArea.value);
 
-  //Step 3a-2  (Gate 1: Is text-area entry valid JSON?)
+  //STEP 3a-2  (Gate 1: Is text-area entry valid JSON?)
   if (jsonData === null) {
     showError("JSON parsing failed");
     return;
   }
 
-  //Step 3a-3  (Gate 2: Is name entry valid?)
+  //STEP 3a-3  (Gate 2: Is name entry valid?)
   if (validateName(jsonData.name) === null) {
     showError("Name must be a string between 2 and 80 characters");
     return;
   }
 
-  //Step 3a-4  (Gate 3: Are the cards an array?)
+  //STEP 3a-4  (Gate 3: Are the cards an array?)
   if (Array.isArray(jsonData.cards) === false) {
     showError("Cards must be an array");
     return;
@@ -131,7 +131,7 @@ function submitForm(event) {
   //STEP 3b-1: Normalize the selected hexadecimal color using normalizeColor() function.
   const color = normalizeColor(formValues.color);
 
-  //Step 3b-2  (Gate 4: Does the JSON color match the selected color?)
+  //STEP 3b-2  (Gate 4: Does the JSON color match the selected color?)
   if (
     typeof jsonData.color === "string" &&
     jsonData.color.toLowerCase() !== color
