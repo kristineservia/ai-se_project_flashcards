@@ -96,34 +96,37 @@ function renderCarouselView(deck) {
     return `${deck.name} \u00B7 ${currentIndex + 1} / ${deck.cards.length} cards`;
   }
 
-  // Deck Card Connection by Id
-
   /**
+   * The updateDisplay() function updates the Carousel view based on the current card index and whether
+   * the question or answer is being shown. It updates the carousel title, card content and color, and the
+   * enabled or disabled state of the navigation arrows.
+   *
+   * @returns {void} The function does not return a value.
    *
    */
   function updateDisplay() {
-    //Step 1: Get currentCard to display
+    //Step 1: Get the current card to display.
     const currentCard = deck.cards[currentIndex];
 
-    //Step 2: Display Flash Card deck information in Carousel. Connect deck to carousel.
+    //Step 2: currentCard now gives access to the selected card's
+    // question and answer through currentCard.question and currentCard.answer.
     currentCard.question;
     currentCard.answer;
     // deck.cards[currentIndex].question;
     // deck.cards[currentIndex].answer;
 
-    //Step 3: Set section title (NEW- add this line)
+    //Step 3: Update the carousel title with the deck name and current card position.
     carouselTitle.textContent = getCarouselTitleString(deck, currentIndex);
 
-    //Step 4: Clean slate - remove any existing color modifiers.
+    //Step 4: Remove any existing color modifier classes
     removeColorClasses(carouselCardEl);
 
-    //Step 5: Set the new color
+    //Step 5: Convert the deck's hexadecimal color to its color name
+    // and apply the corresponding CSS class.
     const colorName = hexToString(deck.color);
-    carouselCardEl.classList.add(
-      `carousel__card_color_${hexToString(deck.color)}`,
-    );
+    carouselCardEl.classList.add(`carousel__card_color_${colorName}`);
 
-    //Step 6: Toggle between showing the question in the deck color, and showing the answer in white color card.
+    //Step 6: Display either the question in the deck color or the answer on a white card.
     if (showingQuestion === true) {
       carouselCardText.textContent = currentCard.question;
       carouselCardEl.classList.remove("carousel__card_color_white");
@@ -132,7 +135,7 @@ function renderCarouselView(deck) {
       carouselCardEl.classList.add("carousel__card_color_white");
     }
 
-    //Step 7. Button functions called inside updateDisplay() to disable or enable them based on conditions.
+    //Step 7. Disable the left arrow on the first card and the right arrow on the last card.
     if (currentIndex === 0) {
       disableButton(leftBtn);
     } else {
@@ -146,7 +149,7 @@ function renderCarouselView(deck) {
     }
   }
 
-  //Step 8: Button Click Event Handlers for Left, Right, and Flip buttons
+  //Step 8: Add click event listeners for the right, left, and flip buttons.
   rightBtn.addEventListener("click", () => {
     if (currentIndex < deck.cards.length - 1) {
       currentIndex++;
