@@ -48,7 +48,13 @@ function parseJSON(jsonString) {
   }
 }
 
-//VALIDATE NAME INPUT ON FORM
+/**
+ * The validateName() function checks whether the provided name is a string between 2 and 80 characters. If the name is
+ * invalid, it returns null. If the name is valid, the function returns the name.
+ *
+ * @param {string} name - The name to validate.
+ * @returns {string|null}  The validated name, or null if the name is invalid.
+ */
 function validateName(name) {
   if (typeof name != "string" || name.length < 2 || name.length > 80) {
     return null;
