@@ -63,8 +63,14 @@ function renderCarouselView(deck) {
   }
 
   /**
+   * NOTE--REVIEW AFTER SUBMISSION: Revisit the conditional logic in updateArrows() and compare it
+   * with the arrow logic inside updateDisplay().
    *
-   * @param {*} buttonEl
+   * The updateArrows() function checks currentIndex against the beginning and end of the deck.cards
+   * and calls either disableButton() or enableButton() for the button passed to it.
+   *
+   * @param {HTMLButtonElement} buttonEl - The HTML button element.
+   * @returns {void} The function does not return a value.
    */
   function updateArrows(buttonEl) {
     if (currentIndex === 0 || currentIndex === deck.cards.length - 1) {
@@ -77,11 +83,14 @@ function renderCarouselView(deck) {
   }
 
   /**
+   * The getCarouselTitleString() function creates and returns the carousel title showing the deck name,
+   * current card position, and total number of cards.
    *
-   *
-   * @param {*} deck
-   * @param {*} currentIndex
-   * @returns
+   * @param {Object} deck - The deck received from the API.
+   * @param {string} deck.name - The name of the deck.
+   * @param {Array} deck.cards - The array of cards contained in the deck.
+   * @param {number} currentIndex - The current card's array index.
+   * @returns {string} The formatted title string displayed in the carousel.
    */
   function getCarouselTitleString(deck, currentIndex) {
     return `${deck.name} \u00B7 ${currentIndex + 1} / ${deck.cards.length} cards`;
