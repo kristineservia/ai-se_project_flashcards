@@ -1,5 +1,17 @@
 import { hexToString, removeColorClasses } from "./colors.js";
 
+/**
+ * The renderCarouselView() function renders and controls the Carousel/Practice view for the selected deck. It displays one card
+ * at a time and lets the user navigate through the cards and flip between each card's question and answer.
+ *
+ * @param {Object} deck - The deck received by the API.
+ * @param {string} deck.name - The name of the deck.
+ * @param {string} deck.color - The hexadecimal color string assigned to the deck.
+ * @param {Array} deck.cards - The array of cards in a deck.
+ *
+ * @returns {void} The function does not return a value.
+ *
+ */
 function renderCarouselView(deck) {
   let currentIndex = 0;
   let showingQuestion = true;
@@ -25,16 +37,28 @@ function renderCarouselView(deck) {
   const carouselCardTitle = carouselEl.querySelector(".carousel__card-title");
   const carouselCardText = carouselEl.querySelector(".carousel__card-text");
 
+  /**
+   *
+   * @param {*} buttonEl
+   */
   function disableButton(buttonEl) {
     buttonEl.classList.add("carousel__btn_disabled");
     buttonEl.carousel__card_disabled = true;
   }
 
+  /**
+   *
+   * @param {*} buttonEl
+   */
   function enableButton(buttonEl) {
     buttonEl.classList.remove("carousel__btn_disabled");
     buttonEl.removeAttribute("disabled");
   }
 
+  /**
+   *
+   * @param {*} buttonEl
+   */
   function updateArrows(buttonEl) {
     if (currentIndex === 0 || currentIndex === deck.cards.length - 1) {
       disableButton(buttonEl);
@@ -45,11 +69,22 @@ function renderCarouselView(deck) {
     }
   }
 
+  /**
+   *
+   *
+   * @param {*} deck
+   * @param {*} currentIndex
+   * @returns
+   */
   function getCarouselTitleString(deck, currentIndex) {
     return `${deck.name} \u00B7 ${currentIndex + 1} / ${deck.cards.length} cards`;
   }
 
   // Deck Card Connection by Id
+
+  /**
+   *
+   */
   function updateDisplay() {
     //Step 1: Get currentCard to display
     const currentCard = deck.cards[currentIndex];
