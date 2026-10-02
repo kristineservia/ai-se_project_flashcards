@@ -11,10 +11,10 @@ My Flashcard App features:
 - A "Practice" button on the top right corner above the open deck of cards leads to the Carousel View of the specific deck selected.
 - The Carousel navigation page, displayed for the selected deck, enables browsing through its group of cards by using the left and right arrow buttons. Clicking the flip button underneath each card on the Carousel reveals the answer to the question.
 - Responsive design layout for mobile viewing of home view, open deck view, and carousel view, with "Practice" and navigation button functionality.
-- NEW! The Flashcard App features the opportunity to create customized decks of the user's selected study topic with the functional + New Deck button. The button takes the user to the New Deck form, where they can select the deck's color and enter the study topic of their choice in the provided format. The new deck's data is sent through a remote API for persistance storage, and once the deck is successfully created, it is added to the app and displayed on the homepage.
-- NEW! The New Deck form includes validation and error handling. If the data entered in the New Deck form is invalid, an error message alerts the user by displaying an error modal, before any deck data is sent to the remote API. Once the data is valid, a new deck object is created and sent to the API.
-- NEW! The decks in the Flashcard App are now persisted remotely through an API. When the app reloads, newly created decks are fetched again and continue to appear on the homepage instead of disappearing after a browser refresh. Likewise, when a user deletes a deck, the deletion is sent through the remote API so the deck remains deleted after the page is refreshed.
-- NEW! The Flashcard App now features detailed JSDoc documentation for every named function used to build the app.
+- **NEW!** The Flashcard App features the opportunity to create customized decks of the user's selected study topic with the functional + New Deck button. The button takes the user to the New Deck form, where they can select the deck's color and enter the study topic of their choice in the provided format. The new deck's data is sent through a remote API for persistance storage, and once the deck is successfully created, it is added to the app and displayed on the homepage.
+- **NEW!** The New Deck form includes validation and error handling. If the data entered in the New Deck form is invalid, an error message alerts the user by displaying an error modal, before any deck data is sent to the remote API. Once the data is valid, a new deck object is created and sent to the API.
+- **NEW!** The decks in the Flashcard App are now persisted remotely through an API. When the app reloads, newly created decks are fetched again and continue to appear on the homepage instead of disappearing after a browser refresh. Likewise, when a user deletes a deck, the deletion is sent through the remote API so the deck remains deleted after the page is refreshed.
+- **NEW!** The Flashcard App now features detailed JSDoc documentation for every named function used to build the app.
 
 ## Technologies Used
 
@@ -28,7 +28,13 @@ My Flashcard App features:
 
 **JavaScript**
 
-- JavaScript was used to add interactivity to each deck in the App.
+- JavaScript was used to add interactivity (clickable decks, carousel feature), form validation, error handling, and hash-based routing to the app.
+- The Fetch API, via the `fetch()` method, is used in JavaScript to send HTTP requests to the remote Flashcards API.
+- JSDoc is used to document the app's named JavaScript functions.
+
+**API**
+
+- The Flashcard App communicates with a remote server through an API. HTTP (Hypertext Transfer Protocol) requests are used to retrieve saved decks, create new persistent decks, and delete existing decks so that these changes remain after the browser is refreshed.
 
 ## Screenshots
 
