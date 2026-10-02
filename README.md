@@ -44,7 +44,15 @@ My Flashcard App features:
 
 ![Flashcard App, Confirmation Modal](./assets/images/screenshots/00b_newSS_home.png)
 
+![Flashcard App, About Page](./assets/images/screenshots/00b_newSS_aboutView.png)
+
 ![Flashcard App, New Deck](./assets/images/screenshots/00c_newSS_newDeck.png)
+
+![Flashcard App, New Deck JSON parsing error modal](./assets/images/screenshots/00c-2_newSS_newDeckErrorModal.png)
+
+![Flashcard App, Deck deletion confirmation modal](./assets/images/screenshots/00b_newSS_deckConfirmationModal.png)
+
+![Flashcard App, Card deletion confirmation modal](./assets/images/screenshots/00b_newSS_cardConfirmationModal.png)
 
 ![Flashcard App Homepage Mobile](./assets/images/screenshots/05_newSS_home-mobile.png)
 
