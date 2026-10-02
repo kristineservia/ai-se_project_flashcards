@@ -11,7 +11,7 @@ My Flashcard App features:
 - A "Practice" button on the top right corner above the open deck of cards leads to the Carousel View of the specific deck selected.
 - The Carousel navigation page, displayed for the selected deck, enables browsing through its group of cards by using the left and right arrow buttons. Clicking the flip button underneath each card on the Carousel reveals the answer to the question.
 - Responsive design layout for mobile viewing of home view, open deck view, and carousel view, with "Practice" and navigation button functionality.
-- Forthcoming: The Flashcard App will soon feature the opportunity to create customized decks of the user's choosing with a functional +New Deck button.
+- NEW! The Flashcard App features the opportunity to create customized decks of the user's selected study topic with the functional + New Deck button. The button takes the user to the New Deck form, where they can select the deck's color and enter the study topic of their choice in the provided format. The new deck's data is sent to a remote API, and once the deck is successfully created, it is added to the app and displayed on the homepage.
 
 ## Technologies Used
 
