@@ -12,6 +12,7 @@ My Flashcard App features:
 - The Carousel navigation page, displayed for the selected deck, enables browsing through its group of cards by using the left and right arrow buttons. Clicking the flip button underneath each card on the Carousel reveals the answer to the question.
 - Responsive design layout for mobile viewing of home view, open deck view, and carousel view, with "Practice" and navigation button functionality.
 - NEW! The Flashcard App features the opportunity to create customized decks of the user's selected study topic with the functional + New Deck button. The button takes the user to the New Deck form, where they can select the deck's color and enter the study topic of their choice in the provided format. The new deck's data is sent to a remote API, and once the deck is successfully created, it is added to the app and displayed on the homepage.
+- NEW! The New Deck form includes validation and error handling. If the data entered in the New Deck form is invalid, an error message alerts the user by displaying an error modal, before any deck data is sent to the remote API. Once the data is valid, a new deck object is created and sent to the API.
 
 ## Technologies Used
 
