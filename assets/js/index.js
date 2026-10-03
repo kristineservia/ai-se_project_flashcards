@@ -26,7 +26,7 @@ let currentDeck = null;
 const newDeckButton = document.querySelector("#home .gallery__new-card-btn");
 
 newDeckButton.addEventListener("click", () => {
-  window.location.hash = "new-deck-view";
+  window.location.hash = "new-deck";
 });
 
 //NEW DECK FORM --SUBMISSION BUTTON--
@@ -209,7 +209,7 @@ function router() {
     disableSubmitBtn();
 
     //ABOUT VIEW
-  } else if (hash === "about") {
+  } else if (hash === "new-deck") {
     seeAboutView();
   }
 
