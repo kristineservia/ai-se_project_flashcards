@@ -215,7 +215,7 @@ function router() {
     disableSubmitBtn();
 
     //ABOUT VIEW
-  } else if (hash === "new-deck") {
+  } else if (hash === "about" || hash === "new-deck") {
     seeAboutView();
   }
 
