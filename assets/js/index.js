@@ -19,6 +19,7 @@ const notFoundSection = document.querySelector("#not-found");
 const mainElement = document.querySelector(".page__main-content");
 const pageElement = document.querySelector(".page");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
+const createADeckBtn = aboutSection.querySelector(".about__new-deck-view-btn");
 
 let currentDeck = null;
 
@@ -27,6 +28,11 @@ const newDeckButton = document.querySelector("#home .gallery__new-card-btn");
 
 newDeckButton.addEventListener("click", () => {
   window.location.hash = "new-deck";
+});
+
+//CREATE A DECK BUTTON IN ABOUT PAGE -Deck Instructions-
+createADeckBtn.addEventListener("click", () => {
+  window.location.hash = "new-deck-view";
 });
 
 //NEW DECK FORM --SUBMISSION BUTTON--
