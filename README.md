@@ -70,9 +70,23 @@ My Flashcard App features:
 
 ![Git Basics, Carousel Mobile Answer](./assets/images/screenshots/09_newSS_carousel-mobile-A.png)
 
-## Project Pitch Video
+## 🎥 Project Pitch Videos
 
-Check out the [Project Pitch](https://drive.google.com/file/d/1qZKZBR5ozKY_FJEb1rW19yw3hZJLAMun/view?usp=sharing) short video, where I decribe my project, and a challenge I faced while buidling it.
+These videos document the progression of the Flash Cards application as new concepts and functionality were added throughout the project.
+
+### Project Pitch 01 — Local Data & SPA Functionality
+
+This video demonstrates the earlier stage of the project, when the application used locally stored JavaScript data and focused on SPA functionality, routing, deck creation, and user interaction.
+
+[Watch Project Pitch 01](https://drive.google.com/file/d/1qZKZBR5ozKY_FJEb1rW19yw3hZJLAMun/view?usp=sharing)
+
+### Project Pitch 02 — API Integration & Data Persistence
+
+This video demonstrates the next stage of the project, where the application was connected to a remote server through an API.
+
+This phase introduced HTTP requests using `fetch()`, retrieving decks from the server, creating and deleting decks through the API, and persistent data.
+
+[Watch Project Pitch 02](https://drive.google.com/file/d/14uNrMuUiI20poyvbe7Tp40HIviS1eim8/view?usp=drive_link)
 
 ## Deployed site
 
