@@ -10,14 +10,13 @@
   background-color: #ffffff;
   border: 3px solid white;
   border-radius: 8px;
-  padding: 20px 0px;
+  padding: 20px;
   margin-top: 30px;
 }
 
 .about__code {
   margin: 0;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overflow-x: auto;
 }
 
 .about__title {
