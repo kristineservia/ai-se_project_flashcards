@@ -15,7 +15,7 @@ function processResponse(response) {
   if (response.ok) {
     return response.json();
   }
-  return Promise.reject(`Error: ${response.status}`);
+  return Promise.reject(new Error(`Error: ${response.status}`));
 }
 
 const headers = {
