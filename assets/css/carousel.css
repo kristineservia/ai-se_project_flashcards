@@ -167,7 +167,8 @@
   }
 
   .carousel__card {
-    width: 353px;
+    width: 100%;
+    max-width: 353px;
     height: 420px;
     justify-self: center;
     z-index: 4;
