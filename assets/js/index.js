@@ -20,8 +20,22 @@ const mainElement = document.querySelector(".page__main-content");
 const pageElement = document.querySelector(".page");
 const practiceButton = deckViewSection.querySelector(".gallery__practice-btn");
 const createADeckBtn = aboutSection.querySelector(".about__new-deck-view-btn");
+const carouselLayoutClass = "page__main-content_type_carousel";
+const mainContentClass = "page__main-content";
 
 let currentDeck = null;
+
+//NORMAL HOMEPAGE LAYOUT DISPLAY
+function setMainContentLayout() {
+  mainElement.classList.remove(carouselLayoutClass);
+  mainElement.classList.add(mainContentClass);
+}
+
+//CAROUSEL LAYOUT DISPLAY
+function setCarouselLayout() {
+  mainElement.classList.remove(mainContentClass);
+  mainElement.classList.add(carouselLayoutClass);
+}
 
 //NEW DECK BUTTON
 const newDeckButton = document.querySelector("#home .gallery__new-card-btn");
