@@ -16,6 +16,8 @@
 
 .about__code {
   margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .about__title {
