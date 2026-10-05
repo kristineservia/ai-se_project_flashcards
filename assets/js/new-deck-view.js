@@ -156,7 +156,9 @@ function submitForm(event) {
       //STEP 5: Navigate to the new deck using the _id returned by the API.
       window.location.hash = "deck-view/" + newDeck._id;
     })
-    .catch(showError);
+    .catch((err) => {
+      showError(err.message);
+    });
 }
 
 formElement.addEventListener("submit", submitForm);
