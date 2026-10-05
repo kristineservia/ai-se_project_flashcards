@@ -7,7 +7,7 @@ const baseUrl = "https://se-flashcards-api.en.tripleten-services.com/v1";
  * If it was successful, it converts the response body from JSON text into JavaScript data.
  * If it was unsuccessful, it returns a rejected Promise error containing the HTTP status code.
  *
- * @param {string} response - The input JSON received in the app from the API.
+ * @param {Response} response - The response object returned by the fetch request.
  *
  * @returns {Promise} A Promise that resolves with the parsed JSON data or rejects with an error message.
  */
