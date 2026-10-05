@@ -25,13 +25,25 @@ const mainContentClass = "page__main-content";
 
 let currentDeck = null;
 
-//NORMAL HOMEPAGE LAYOUT DISPLAY
+//DISPLAY MAIN PAGE LAYOUT
+/**
+ * The setMainContentLayout() function removes the carousel layout class and adds the main content class to display the
+ * main content on the designated page.
+ *
+ * @returns {void} The function does not return a value.
+ */
 function setMainContentLayout() {
   mainElement.classList.remove(carouselLayoutClass);
   mainElement.classList.add(mainContentClass);
 }
 
-//CAROUSEL LAYOUT DISPLAY
+//DISPLAY CAROUSEL LAYOUT
+/**
+ * The setCarouselLayout() function removes the layout from the main content class and adds the carousel layout
+ * class to display the carousel view.
+ *
+ * @returns {void} The function does not return a value.
+ */
 function setCarouselLayout() {
   mainElement.classList.remove(mainContentClass);
   mainElement.classList.add(carouselLayoutClass);
@@ -118,8 +130,8 @@ function seeDeckView(deck) {
 function seeNewDeckView() {
   showView(newDeckViewSection, "block");
 
-  mainElement.classList.remove(carouselLayoutClass);
-  mainElement.classList.add(mainContentClass);
+  //Display Main Page Layout
+  setMainContentLayout();
 
   //Hide mobile gradient on New Deck view
   pageElement.classList.add("page_no-mobile-bar");
@@ -181,7 +193,7 @@ function router() {
 
   //HOME-VIEW
   if (hash === "home" || hash === "") {
-    //Display Normal HomePage Layout
+    //Display Main Page Layout
     setMainContentLayout();
 
     //Display linear gradient style behind mobile-bar in home view
@@ -207,7 +219,7 @@ function router() {
 
     //DECK-VIEW
   } else if (hash.startsWith("deck-view/")) {
-    //Display Normal HomePage Layout
+    //Display Main Page Layout
     setMainContentLayout();
 
     //Display linear gradient style behind mobile-bar in deck view
