@@ -118,8 +118,8 @@ function seeDeckView(deck) {
 function seeNewDeckView() {
   showView(newDeckViewSection, "block");
 
-  mainElement.classList.remove("page__main-content_type_carousel");
-  mainElement.classList.add("page__main-content");
+  mainElement.classList.remove(carouselLayoutClass);
+  mainElement.classList.add(mainContentClass);
 
   //Hide mobile gradient on New Deck view
   pageElement.classList.add("page_no-mobile-bar");
@@ -162,7 +162,8 @@ function seeAboutView() {
 function seeNotFoundView() {
   showView(notFoundSection, "flex");
 
-  mainElement.classList.remove("page__main-content");
+  mainElement.classList.remove(mainContentClass);
+  mainElement.classList.remove(carouselLayoutClass);
 }
 
 //ROUTER SECTION
@@ -180,8 +181,8 @@ function router() {
 
   //HOME-VIEW
   if (hash === "home" || hash === "") {
-    mainElement.classList.remove("page__main-content_type_carousel");
-    mainElement.classList.add("page__main-content");
+    //Display Normal HomePage Layout
+    setMainContentLayout();
 
     //Display linear gradient style behind mobile-bar in home view
     pageElement.classList.remove("page_no-mobile-bar");
@@ -190,8 +191,8 @@ function router() {
 
     //CAROUSEL-VIEW
   } else if (hash.startsWith("carousel/")) {
-    mainElement.classList.remove("page__main-content");
-    mainElement.classList.add("page__main-content_type_carousel");
+    //Display Carousel Layout
+    setCarouselLayout();
 
     //Delete linear gradient style behind mobile-bar
     pageElement.classList.add("page_no-mobile-bar");
@@ -206,8 +207,8 @@ function router() {
 
     //DECK-VIEW
   } else if (hash.startsWith("deck-view/")) {
-    mainElement.classList.remove("page__main-content_type_carousel");
-    mainElement.classList.add("page__main-content");
+    //Display Normal HomePage Layout
+    setMainContentLayout();
 
     //Display linear gradient style behind mobile-bar in deck view
     pageElement.classList.remove("page_no-mobile-bar");
@@ -235,9 +236,6 @@ function router() {
 
   //PAGE-NOT-FOUND 404
   else {
-    mainElement.classList.remove("page__main-content_type_carousel");
-    mainElement.classList.remove("page__main-content");
-
     seeNotFoundView();
   }
 }
